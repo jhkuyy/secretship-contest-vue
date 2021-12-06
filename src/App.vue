@@ -3,8 +3,32 @@
     alt="Vue logo"
     src="./assets/logo.png"
   >
-  <p>Hello World!</p>
+  <p>{{ isAuthorized }}</p>
+
+  <AuthWidget telegram-bot-name="SecretshipContestVueBot" />
 </template>
+
+<script>
+import { defineComponent } from 'vue'
+import { storeToRefs } from 'pinia'
+import { AuthWidget } from './components'
+import { useUser } from './store'
+
+export default defineComponent({
+  components: {
+    AuthWidget,
+  },
+
+  setup() {
+    const store = useUser()
+    const { isAuthorized } = storeToRefs(store)
+
+    return {
+      isAuthorized,
+    }
+  },
+})
+</script>
 
 <style>
 #app {

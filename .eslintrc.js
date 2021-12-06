@@ -21,12 +21,8 @@ module.exports = {
 
   rules: {
     'no-unused-vars': 'warn',
-    'no-restricted-syntax': 'off',
     'no-debugger': process.env.ENV === 'production' ? 'error' : 'warn',
-    semi: 'off',
-    'import/no-extraneous-dependencies': [
-      'error',
-      { packageDir: './' },
-    ],
+    semi: ['error', 'never'],
+    'import/no-extraneous-dependencies': ['error', { packageDir: './' }],
   },
-};
+}
