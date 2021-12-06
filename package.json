@@ -3,15 +3,22 @@
   "version": "0.0.1",
   "license": "MIT",
   "contributors": [
-    { "name":"Sergey Borisenko", "email":"sy.borisenko@gmal.com" },
-    { "name":"Artem Soldatov","email":"thearteman@gmail.com" }
+    {
+      "name": "Sergey Borisenko",
+      "email": "sy.borisenko@gmal.com"
+    },
+    {
+      "name": "Artem Soldatov",
+      "email": "thearteman@gmail.com"
+    }
   ],
   "scripts": {
-    "dev": "vite",
+    "dev": "sudo vite",
     "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
+    "pinia": "^2.0.6",
     "vue": "^3.2.16"
   },
   "devDependencies": {

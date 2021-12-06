@@ -8,4 +8,8 @@ export default defineConfig({
     vue(),
     eslintPlugin(),
   ],
+
+  server: {
+    port: 80,
+  },
 })
