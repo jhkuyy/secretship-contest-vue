@@ -13,7 +13,7 @@
     }
   ],
   "scripts": {
-    "dev": "sudo vite",
+    "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
   },
