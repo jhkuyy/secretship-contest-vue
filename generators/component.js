@@ -9,8 +9,6 @@ export default defineComponent({})
 </script>
 
 <style lang="stylus" module>
-.{{camelCase name}} {
-}
 </style>
 `
 
