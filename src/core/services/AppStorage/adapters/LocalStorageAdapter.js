@@ -1,7 +1,7 @@
 class LocalStorageAdapter {
   #prefix
 
-  constructor(prefix = 'APP_STORAGE') {
+  constructor(prefix) {
     if (!('localStorage' in window)) {
       throw new Error('LocalStorageAdapter not supported')
     }
@@ -18,7 +18,7 @@ class LocalStorageAdapter {
 
     return item
       ? JSON.parse(item)
-      : null
+      : undefined
   }
 
   set(key, value) {
@@ -26,4 +26,4 @@ class LocalStorageAdapter {
   }
 }
 
-export default new LocalStorageAdapter()
+export default LocalStorageAdapter

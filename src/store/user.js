@@ -5,11 +5,11 @@ const USER_KEY = 'user'
 
 export default defineStore('user', {
   state: () => ({
-    user: null,
+    user: undefined,
   }),
 
   getters: {
-    isAuthorized: (state) => !!state.user,
+    isAuthorized: (state) => state.user !== undefined,
   },
 
   actions: {
@@ -17,7 +17,7 @@ export default defineStore('user', {
       const user = appStorage.get(USER_KEY)
 
       // TODO: check auth
-      const userValid = !!user
+      const userValid = user !== undefined
 
       if (userValid) {
         this.login(user)
@@ -32,8 +32,9 @@ export default defineStore('user', {
     },
 
     logout() {
-      this.user = null
-      appStorage.set(USER_KEY, null)
+      this.user = undefined
+      // TODO: use appStorage.remove(USER_KEY)
+      appStorage.set(USER_KEY, undefined)
     },
   },
 })

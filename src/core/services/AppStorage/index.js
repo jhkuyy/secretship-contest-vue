@@ -1,4 +1,4 @@
-import localStorageAdapter from './adapters/LocalStorageAdapter'
+import LocalStorageAdapter from './adapters/LocalStorageAdapter'
 
 class AppStorage {
   #adapter
@@ -16,4 +16,6 @@ class AppStorage {
   }
 }
 
-export default new AppStorage(localStorageAdapter)
+const adapter = new LocalStorageAdapter('APP_STORAGE')
+
+export default new AppStorage(adapter)
