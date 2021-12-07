@@ -2,10 +2,15 @@ import { useUser } from '../store'
 
 export const GuardName = Object.freeze({
   AUTH: Symbol('guard:auth'),
+  NO_AUTH: Symbol('guard:no-auth'),
 })
 
+function isGuardExists(to, guardName) {
+  return to.meta.guards?.includes(guardName)
+}
+
 function authGuard(to) {
-  if (!to.meta.guards?.includes(GuardName.AUTH)) {
+  if (!isGuardExists(to, GuardName.AUTH)) {
     return true
   }
 
@@ -21,6 +26,24 @@ function authGuard(to) {
   return true
 }
 
+function noAuthGuard(to) {
+  if (!isGuardExists(to, GuardName.NO_AUTH)) {
+    return true
+  }
+
+  const store = useUser()
+
+  if (store.isAuthorized) {
+    // eslint-disable-next-line no-console
+    console.error('Auth guard failed')
+
+    return '/app-list'
+  }
+
+  return true
+}
+
 export const beforeRouteGuards = [
   authGuard,
+  noAuthGuard,
 ]

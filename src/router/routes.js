@@ -14,6 +14,9 @@ export const routes = [
     name: Routes.WELCOME,
     path: '/',
     component: () => import('../views/WelcomeScreen.vue'),
+    meta: {
+      guards: [GuardName.NO_AUTH],
+    },
   },
   {
     name: Routes.APP_ADD,

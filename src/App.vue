@@ -1,7 +1,10 @@
 <template>
   <p>{{ isAuthorized }}</p>
 
-  <AuthWidget telegram-bot-name="SecretshipContestVueBot" />
+  <AuthWidget
+    telegram-bot-name="SecretshipContestVueBot"
+    @auth="onAuth"
+  />
 
   <RouterLink
     v-for="link in links"
@@ -17,7 +20,7 @@
 
 <script>
 import { defineComponent } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { AuthWidget } from './components'
 import { useUser } from './store'
@@ -32,10 +35,17 @@ export default defineComponent({
 
   setup() {
     const store = useUser()
+    const router = useRouter()
     const { isAuthorized } = storeToRefs(store)
+
+    const onAuth = async (user) => {
+      await store.login(user)
+      await router.push({ name: Routes.APP_LIST })
+    }
 
     return {
       isAuthorized,
+      onAuth,
     }
   },
 
