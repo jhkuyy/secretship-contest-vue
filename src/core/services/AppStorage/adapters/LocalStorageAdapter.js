@@ -16,7 +16,9 @@ class LocalStorageAdapter {
   get(key) {
     const item = window.localStorage.getItem(this.#getKey(key))
 
-    return JSON.parse(item)
+    return item
+      ? JSON.parse(item)
+      : null
   }
 
   set(key, value) {
