@@ -11,19 +11,10 @@ export default defineComponent({
       type: Number,
       default: 6,
     },
-    requestAccess: {
-      default: 'read',
-      type: String,
-      validator: (v) => ['read', 'write'].includes(v),
-    },
     size: {
       default: 'medium',
       type: String,
       validator: (v) => ['large', 'medium', 'small'].includes(v),
-    },
-    showUserPicture: {
-      type: Boolean,
-      default: true,
     },
     telegramBotName: {
       type: String,
@@ -59,9 +50,9 @@ export default defineComponent({
     tag.async = true
     tag.src = 'https://telegram.org/js/telegram-widget.js?15'
     tag.setAttribute('data-size', this.size)
-    tag.setAttribute('data-userpic', this.showUserPicture.toString())
+    tag.setAttribute('data-userpic', 'true')
+    tag.setAttribute('data-request-access', 'read')
     tag.setAttribute('data-telegram-login', this.telegramBotName)
-    tag.setAttribute('data-request-access', this.requestAccess)
     tag.setAttribute('data-radius', this.radius.toString())
     tag.setAttribute('data-onauth', 'window.onTelegramAuth(user)')
     window.onTelegramAuth = this.onTelegramAuth
