@@ -19,4 +19,14 @@ export default defineConfig({
   server: {
     port: 80,
   },
+
+  css: {
+    preprocessorOptions: {
+      stylus: {
+        imports: [
+          path.resolve(__dirname, './src/styles/colors.styl'),
+        ],
+      },
+    },
+  },
 })
