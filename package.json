@@ -15,16 +15,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "lint:i18n": "vue-i18n-extract report --vueFiles './src/?(views|components)/**/*.vue' --languageFiles './src/i18n/locales/*.?(yml|yaml)'"
   },
   "dependencies": {
     "pinia": "^2.0.6",
     "vue": "^3.2.16",
+    "vue-i18n": "^9.2.0-beta.23",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",
     "@babel/plugin-proposal-private-methods": "^7.16.0",
+    "@intlify/vite-plugin-vue-i18n": "^3.2.1",
     "@vitejs/plugin-vue": "^1.9.3",
     "eslint": "^8.4.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -34,6 +37,7 @@
     "vite": "^2.6.4",
     "vite-babel-plugin": "^0.0.2",
     "vite-plugin-eslint": "^1.3.0",
-    "vue-eslint-parser": "^8.0.1"
+    "vue-eslint-parser": "^8.0.1",
+    "vue-i18n-extract": "^2.0.4"
   }
 }
