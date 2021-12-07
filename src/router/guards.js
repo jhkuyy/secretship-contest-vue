@@ -5,15 +5,17 @@ export const GuardName = Object.freeze({
   NO_AUTH: Symbol('guard:no-auth'),
 })
 
-function isGuardExists(to, guardName) {
-  return to.meta.guards?.includes(guardName)
+function createGuard(name, callback) {
+  return (to) => {
+    if (!to.meta.guards?.includes(name)) {
+      return true
+    }
+
+    return callback()
+  }
 }
 
-function authGuard(to) {
-  if (!isGuardExists(to, GuardName.AUTH)) {
-    return true
-  }
-
+const authGuard = createGuard(GuardName.AUTH, () => {
   const store = useUser()
 
   if (!store.isAuthorized) {
@@ -24,13 +26,9 @@ function authGuard(to) {
   }
 
   return true
-}
+})
 
-function noAuthGuard(to) {
-  if (!isGuardExists(to, GuardName.NO_AUTH)) {
-    return true
-  }
-
+const noAuthGuard = createGuard(GuardName.NO_AUTH, () => {
   const store = useUser()
 
   if (store.isAuthorized) {
@@ -41,7 +39,7 @@ function noAuthGuard(to) {
   }
 
   return true
-}
+})
 
 export const beforeRouteGuards = [
   authGuard,
