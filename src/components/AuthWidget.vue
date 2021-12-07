@@ -39,12 +39,14 @@ export default defineComponent({
       first_name: firstName,
       photo_url: photo,
       username,
+      hash,
     }) => {
       emit('auth', {
         id,
         firstName,
         photo,
         username,
+        hash,
       })
     }
 

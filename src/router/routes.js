@@ -1,21 +1,12 @@
-import { GuardName } from './guards'
+import { Guards, Routes } from './enums'
 
-export const Routes = Object.freeze({
-  WELCOME: 'route:home',
-  APP_ADD: 'route:app-add',
-  APP_DETAILS: 'route:app-details',
-  APP_LIST: 'route:app-list',
-  PROFILE_EDIT: 'route:profile-edit',
-  NOT_FOUND: 'route:not-found',
-})
-
-export const routes = [
+export default [
   {
     name: Routes.WELCOME,
     path: '/',
     component: () => import('../views/WelcomeScreen.vue'),
     meta: {
-      guards: [GuardName.NO_AUTH],
+      guards: [Guards.NO_AUTH],
     },
   },
   {
@@ -27,7 +18,7 @@ export const routes = [
         path: '',
         component: () => import('../views/App/AppList.vue'),
         meta: {
-          guards: [GuardName.AUTH],
+          guards: [Guards.AUTH],
         },
       },
       {
@@ -35,7 +26,7 @@ export const routes = [
         path: 'add',
         component: () => import('../views/App/AppAdd.vue'),
         meta: {
-          guards: [GuardName.AUTH],
+          guards: [Guards.AUTH],
         },
       },
       {
@@ -43,7 +34,7 @@ export const routes = [
         path: 'details/:id',
         component: () => import('../views/App/AppDetails.vue'),
         meta: {
-          guards: [GuardName.AUTH],
+          guards: [Guards.AUTH],
         },
       },
     ],
@@ -53,7 +44,7 @@ export const routes = [
     path: '/profile-edit',
     component: () => import('../views/ProfileEdit.vue'),
     meta: {
-      guards: [GuardName.AUTH],
+      guards: [Guards.AUTH],
     },
   },
   {

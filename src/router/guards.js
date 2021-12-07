@@ -1,47 +1,43 @@
 import { useUser } from '../store'
-
-export const GuardName = Object.freeze({
-  AUTH: Symbol('guard:auth'),
-  NO_AUTH: Symbol('guard:no-auth'),
-})
+import { Guards, Routes } from './enums'
 
 function createGuard(name, callback) {
-  return (to) => {
+  return (to, from, next) => {
     if (!to.meta.guards?.includes(name)) {
-      return true
+      return next()
     }
 
-    return callback()
+    return callback({ to, from, next })
   }
 }
 
-const authGuard = createGuard(GuardName.AUTH, () => {
+const authGuard = createGuard(Guards.AUTH, ({ next }) => {
   const store = useUser()
 
   if (!store.isAuthorized) {
     // eslint-disable-next-line no-console
     console.error('Auth guard failed')
 
-    return '/'
+    return next({ name: Routes.WELCOME })
   }
 
-  return true
+  return next()
 })
 
-const noAuthGuard = createGuard(GuardName.NO_AUTH, () => {
+const noAuthGuard = createGuard(Guards.NO_AUTH, ({ next }) => {
   const store = useUser()
 
   if (store.isAuthorized) {
     // eslint-disable-next-line no-console
     console.error('No auth guard failed')
 
-    return '/apps'
+    return next({ name: Routes.APP_LIST })
   }
 
-  return true
+  return next()
 })
 
-export const beforeRouteGuards = [
+export default [
   authGuard,
   noAuthGuard,
 ]

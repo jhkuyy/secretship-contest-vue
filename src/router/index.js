@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { Routes, routes } from './routes'
-import { beforeRouteGuards, GuardName } from './guards'
+import routes from './routes'
+import beforeRouteGuards from './guards'
+import { Routes } from './enums'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -10,7 +11,6 @@ const router = createRouter({
 beforeRouteGuards.forEach(router.beforeEach)
 
 export {
-  GuardName,
   router,
   Routes,
 }

@@ -19,12 +19,12 @@
 </template>
 
 <script>
+import { storeToRefs } from 'pinia'
 import { defineComponent } from 'vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
-import { storeToRefs } from 'pinia'
 import { AuthWidget } from './components'
-import { useUser } from './store'
 import { Routes } from './router'
+import { useUser } from './store'
 
 export default defineComponent({
   components: {
