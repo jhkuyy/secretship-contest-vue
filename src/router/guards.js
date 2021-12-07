@@ -35,9 +35,9 @@ function noAuthGuard(to) {
 
   if (store.isAuthorized) {
     // eslint-disable-next-line no-console
-    console.error('Auth guard failed')
+    console.error('No auth guard failed')
 
-    return '/app-list'
+    return '/apps'
   }
 
   return true

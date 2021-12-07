@@ -8,11 +8,11 @@
 
   <RouterLink
     v-for="link in links"
-    :key="link.name"
-    :to="link.path"
+    :key="link"
+    :to="{ name: link }"
     :class="$style.link"
   >
-    {{ link.name }}
+    {{ link }}
   </RouterLink>
 
   <RouterView />
@@ -52,26 +52,10 @@ export default defineComponent({
   computed: {
     links() {
       return [
-        {
-          name: Routes.WELCOME,
-          path: '/',
-        },
-        {
-          name: Routes.APP_ADD,
-          path: '/app-add',
-        },
-        {
-          name: Routes.APP_DETAILS,
-          path: '/app-details',
-        },
-        {
-          name: Routes.APP_LIST,
-          path: '/app-list',
-        },
-        {
-          name: Routes.PROFILE_EDIT,
-          path: '/profile-edit',
-        },
+        Routes.WELCOME,
+        Routes.APP_ADD,
+        Routes.APP_LIST,
+        Routes.PROFILE_EDIT,
       ]
     },
   },

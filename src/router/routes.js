@@ -19,28 +19,34 @@ export const routes = [
     },
   },
   {
-    name: Routes.APP_ADD,
-    path: '/app-add',
-    component: () => import('../views/AppAdd.vue'),
-    meta: {
-      guards: [GuardName.AUTH],
-    },
-  },
-  {
-    name: Routes.APP_DETAILS,
-    path: '/app-details',
-    component: () => import('../views/AppDetails.vue'),
-    meta: {
-      guards: [GuardName.AUTH],
-    },
-  },
-  {
-    name: Routes.APP_LIST,
-    path: '/app-list',
-    component: () => import('../views/AppList.vue'),
-    meta: {
-      guards: [GuardName.AUTH],
-    },
+    path: '/apps',
+    component: () => import('../views/App/AppLayout.vue'),
+    children: [
+      {
+        name: Routes.APP_LIST,
+        path: '',
+        component: () => import('../views/App/AppList.vue'),
+        meta: {
+          guards: [GuardName.AUTH],
+        },
+      },
+      {
+        name: Routes.APP_ADD,
+        path: 'add',
+        component: () => import('../views/App/AppAdd.vue'),
+        meta: {
+          guards: [GuardName.AUTH],
+        },
+      },
+      {
+        name: Routes.APP_DETAILS,
+        path: 'details/:id',
+        component: () => import('../views/App/AppDetails.vue'),
+        meta: {
+          guards: [GuardName.AUTH],
+        },
+      },
+    ],
   },
   {
     name: Routes.PROFILE_EDIT,
