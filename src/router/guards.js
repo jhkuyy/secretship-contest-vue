@@ -21,6 +21,6 @@ function authGuard(to) {
   return true
 }
 
-export const RouteGuards = [
+export const beforeRouteGuards = [
   authGuard,
 ]
