@@ -1,8 +1,6 @@
-import { useUser } from '../store'
-import { router, Routes } from '../router'
+import { Routes } from '../router'
 
-// eslint-disable-next-line import/prefer-default-export
-export async function initUser() {
+async function initUser({ router, useUser }) {
   const userStore = useUser()
 
   await userStore.initAuthorization()
@@ -12,4 +10,10 @@ export async function initUser() {
     : Routes.WELCOME
 
   await router.replace({ name })
+}
+
+export default function boot({ router, useUser }) {
+  return Promise.all([
+    initUser({ router, useUser }),
+  ])
 }

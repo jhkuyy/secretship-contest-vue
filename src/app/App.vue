@@ -22,9 +22,9 @@
 import { storeToRefs } from 'pinia'
 import { defineComponent } from 'vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
-import { AuthWidget } from './components'
-import { Routes } from './router'
-import { useUser } from './store'
+import { AuthWidget } from '../components'
+import { Routes } from '../router'
+import { useUser } from '../store'
 
 export default defineComponent({
   components: {

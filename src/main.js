@@ -1,17 +1,11 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import { initUser } from './bootstrap'
-import { router } from './router'
-import { store } from './store'
+import createApp from './app'
+import boot from './bootstrap'
+import { useUser } from './store'
 
 (async () => {
-  const app = createApp(App)
-    .use(router)
-    .use(store)
+  const { app, router } = createApp()
 
-  await Promise.all([
-    initUser(),
-  ])
+  await boot({ router, useUser })
 
   app.mount('#app')
 })()
