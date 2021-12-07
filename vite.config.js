@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import eslintPlugin from 'vite-plugin-eslint'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,6 +11,16 @@ export default defineConfig({
   ],
 
   server: {
-    port: 80,
+    port: 8080,
+  },
+
+  css: {
+    preprocessorOptions: {
+      stylus: {
+        imports: [
+          path.resolve(__dirname, './src/styles/colors.styl'),
+        ],
+      },
+    },
   },
 })
