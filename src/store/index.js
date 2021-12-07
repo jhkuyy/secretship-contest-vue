@@ -1,9 +1,11 @@
 import { createPinia } from 'pinia'
 import useUser from './user'
 
-const store = createPinia()
+function createStore() {
+  return createPinia()
+}
 
 export {
-  store,
+  createStore,
   useUser,
 }

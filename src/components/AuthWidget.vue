@@ -4,7 +4,6 @@
 
 <script>
 import { defineComponent } from 'vue'
-import { useUser } from '../store'
 
 export default defineComponent({
   props: {
@@ -32,20 +31,22 @@ export default defineComponent({
     },
   },
 
-  setup() {
-    const { login } = useUser()
+  emits: ['auth'],
 
+  setup(_, { emit }) {
     const onTelegramAuth = ({
       id,
       first_name: firstName,
       photo_url: photo,
       username,
+      hash,
     }) => {
-      login({
+      emit('auth', {
         id,
         firstName,
         photo,
         username,
+        hash,
       })
     }
 
