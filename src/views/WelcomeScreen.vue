@@ -21,6 +21,10 @@
       <strong>500 billion views</strong> in one-to-many channels.
     </p>
 
+    <Button :class="$style.button">
+      Log In
+    </Button>
+
     <div :class="$style.additionalInfo">
       <h3>Advertising on Telegram</h3>
 
@@ -93,7 +97,9 @@
       </p>
     </div>
 
-    <button>Log In</button>
+    <Button :class="$style.button">
+      Log In
+    </Button>
   </div>
 </template>
 
@@ -103,11 +109,15 @@ import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
-import imageIntro from '../assets/images/welcome/ads_intro.svg'
+import { Button } from '../components'
 import { useUser } from '../store'
 import { Route } from '../lib'
 
 export default defineComponent({
+  components: {
+    Button,
+  },
+
   setup() {
     const store = useUser()
     const router = useRouter()
@@ -121,7 +131,6 @@ export default defineComponent({
 
     return {
       isAuthorized,
-      imageIntro,
       onAuth,
       t,
     }
@@ -158,7 +167,8 @@ export default defineComponent({
 }
 
 .additionalInfo {
-  text-align: start
+  text-align: start;
+  margin-top: 70px
 }
 
 .sponsoredMessagesVideo {
@@ -166,5 +176,10 @@ export default defineComponent({
   margin: 20px auto 20px
   display: block
   width: 100%
+}
+
+.button {
+  width 210px
+  margin 30px 0 12px
 }
 </style>
