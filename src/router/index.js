@@ -1,7 +1,6 @@
 import { createRouter as _createRouter, createWebHistory } from 'vue-router'
 import routes from './routes'
-import beforeRouteGuards from './guards'
-import { Routes } from './enums'
+import guards from './guards'
 
 function createRouter() {
   const router = _createRouter({
@@ -9,12 +8,12 @@ function createRouter() {
     routes,
   })
 
-  beforeRouteGuards.forEach(router.beforeEach)
+  guards.forEach(router.beforeEach)
 
   return router
 }
 
 export {
+  // eslint-disable-next-line import/prefer-default-export
   createRouter,
-  Routes,
 }

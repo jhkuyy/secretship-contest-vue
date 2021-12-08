@@ -1,5 +1,6 @@
 import { useUser } from '../store'
-import { Guards, Routes } from './enums'
+import { Route } from '../lib'
+import RouteGuard from './RouteGuard'
 
 function createGuard(name, callback) {
   return (to, from, next) => {
@@ -11,27 +12,27 @@ function createGuard(name, callback) {
   }
 }
 
-const authGuard = createGuard(Guards.AUTH, ({ next }) => {
+const authGuard = createGuard(RouteGuard.AUTH, ({ next }) => {
   const store = useUser()
 
   if (!store.isAuthorized) {
     // eslint-disable-next-line no-console
     console.error('Auth guard failed')
 
-    return next({ name: Routes.WELCOME })
+    return next({ name: Route.WELCOME })
   }
 
   return next()
 })
 
-const noAuthGuard = createGuard(Guards.NO_AUTH, ({ next }) => {
+const noAuthGuard = createGuard(RouteGuard.NO_AUTH, ({ next }) => {
   const store = useUser()
 
   if (store.isAuthorized) {
     // eslint-disable-next-line no-console
     console.error('No auth guard failed')
 
-    return next({ name: Routes.APP_LIST })
+    return next({ name: Route.APP_LIST })
   }
 
   return next()

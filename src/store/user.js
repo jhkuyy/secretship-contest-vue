@@ -15,9 +15,9 @@ export default defineStore('user', {
   actions: {
     async initAuthorization() {
       const user = appStorage.get(USER_KEY)
-
       // TODO: check auth
       const userValid = user !== undefined
+      console.log('user', user, userValid)
 
       if (userValid) {
         this.login(user)
@@ -33,8 +33,7 @@ export default defineStore('user', {
 
     logout() {
       this.user = undefined
-      // TODO: use appStorage.remove(USER_KEY)
-      appStorage.set(USER_KEY, undefined)
+      appStorage.remove(USER_KEY)
     },
   },
 })

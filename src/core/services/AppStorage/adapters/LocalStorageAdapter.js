@@ -24,6 +24,10 @@ class LocalStorageAdapter {
   set(key, value) {
     window.localStorage.setItem(this.#getKey(key), JSON.stringify(value))
   }
+
+  remove(key) {
+    window.localStorage.removeItem(this.#getKey(key))
+  }
 }
 
 export default LocalStorageAdapter

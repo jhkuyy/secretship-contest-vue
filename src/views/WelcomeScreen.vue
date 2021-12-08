@@ -98,21 +98,16 @@
 </template>
 
 <script>
-import { storeToRefs } from 'pinia'
 import { defineComponent } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+
 import imageIntro from '../assets/images/welcome/ads_intro.svg'
-import { AuthWidget, LocaleSelector } from '../components'
 import { useUser } from '../store'
-import { Routes } from '../router'
+import { Route } from '../lib'
 
 export default defineComponent({
-  components: {
-    AuthWidget,
-    LocaleSelector,
-  },
-
   setup() {
     const store = useUser()
     const router = useRouter()
@@ -120,8 +115,8 @@ export default defineComponent({
     const { isAuthorized } = storeToRefs(store)
 
     const onAuth = async (user) => {
-      await store.login(user)
-      await router.push({ name: Routes.APP_LIST })
+      store.login(user)
+      await router.push({ name: Route.APP_LIST })
     }
 
     return {

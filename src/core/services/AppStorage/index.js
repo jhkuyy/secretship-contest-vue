@@ -14,6 +14,10 @@ class AppStorage {
   set(key, value) {
     this.#adapter.set(key, value)
   }
+
+  remove(key) {
+    this.#adapter.remove(key)
+  }
 }
 
 const adapter = new LocalStorageAdapter('APP_STORAGE')

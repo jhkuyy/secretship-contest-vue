@@ -1,4 +1,4 @@
-import { Routes } from '../router'
+import { Route } from '../lib'
 
 async function initUser({ router, useUser }) {
   const userStore = useUser()
@@ -6,8 +6,8 @@ async function initUser({ router, useUser }) {
   await userStore.initAuthorization()
 
   const name = userStore.isAuthorized
-    ? Routes.APP_LIST
-    : Routes.WELCOME
+    ? Route.APP_LIST
+    : Route.WELCOME
 
   await router.replace({ name })
 }

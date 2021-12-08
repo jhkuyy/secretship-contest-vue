@@ -1,12 +1,13 @@
-import { Guards, Routes } from './enums'
+import { Route } from '../lib'
+import RouteGuard from './RouteGuard'
 
 export default [
   {
-    name: Routes.WELCOME,
+    name: Route.WELCOME,
     path: '/',
     component: () => import('../views/WelcomeScreen.vue'),
     meta: {
-      guards: [Guards.NO_AUTH],
+      guards: [RouteGuard.NO_AUTH],
     },
   },
   {
@@ -14,37 +15,37 @@ export default [
     component: () => import('../views/App/AppLayout.vue'),
     children: [
       {
-        name: Routes.APP_LIST,
+        name: Route.APP_LIST,
         path: '',
         component: () => import('../views/App/AppList.vue'),
         meta: {
-          guards: [Guards.AUTH],
+          guards: [RouteGuard.AUTH],
         },
       },
       {
-        name: Routes.APP_ADD,
+        name: Route.APP_ADD,
         path: 'add',
         component: () => import('../views/App/AppAdd.vue'),
         meta: {
-          guards: [Guards.AUTH],
+          guards: [RouteGuard.AUTH],
         },
       },
       {
-        name: Routes.APP_DETAILS,
+        name: Route.APP_DETAILS,
         path: 'details/:id',
         component: () => import('../views/App/AppDetails.vue'),
         meta: {
-          guards: [Guards.AUTH],
+          guards: [RouteGuard.AUTH],
         },
       },
     ],
   },
   {
-    name: Routes.PROFILE_EDIT,
+    name: Route.PROFILE_EDIT,
     path: '/profile-edit',
     component: () => import('../views/ProfileEdit.vue'),
     meta: {
-      guards: [Guards.AUTH],
+      guards: [RouteGuard.AUTH],
     },
   },
   {
