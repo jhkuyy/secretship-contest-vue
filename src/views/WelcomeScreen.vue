@@ -6,41 +6,73 @@
       height="212"
     >
 
-    <h1>Telegram Ad Platform</h1>
+    <h1>{{ t('page.welcome.title1') }}</h1>
 
-    <p>
-      Telegram provides a <strong>free and secure</strong> messaging service for more than
-      <strong>500 million monthly active users</strong>
-      around the world. In addition to sending private messages and chatting
-      in private groups, Telegram users can subscribe to
-      <a href="https://telegram.org/tour/channels"><strong>public one-to-many channels</strong></a>.
-    </p>
+    <i18n-t
+      keypath="page.welcome.p1.term"
+      tag="p"
+    >
+      <template #t1>
+        <strong>{{ t('page.welcome.p1.t1') }}</strong>
+      </template>
+      <template #t2>
+        <strong>{{ t('page.welcome.p1.t2') }}</strong>
+      </template>
+      <template #t3>
+        <a href="https://telegram.org/tour/channels">
+          <strong>{{ t('page.welcome.p1.t3') }}</strong>
+        </a>
+      </template>
+    </i18n-t>
 
-    <p>
-      Every month, Telegram users generate over
-      <strong>500 billion views</strong> in one-to-many channels.
-    </p>
+    <i18n-t
+      keypath="page.welcome.p2.term"
+      tag="p"
+    >
+      <template #t1>
+        <strong>{{ t('page.welcome.p2.t1') }}</strong>
+      </template>
+    </i18n-t>
 
-    <Button :class="$style.button">
-      Log In
-    </Button>
+    <AuthWidget
+      size="large"
+      telegram-bot-name="SecretshipContestVueBot"
+      :class="$style.button"
+      @auth="onAuth"
+    />
 
     <div :class="$style.additionalInfo">
-      <h3>Advertising on Telegram</h3>
+      <h3>{{ t('page.welcome.title2') }}</h3>
 
-      <p>
-        Sponsored messages on Telegram are displayed in
-        <strong>large public one-to-many channels</strong>
-        with <strong>1000+</strong> subscribers and are limited to
-        <strong>160 characters</strong>. Sponsored Messages are based solely on the
-        <strong>topic</strong> of the public channels in which they are shown.
-      </p>
+      <i18n-t
+        keypath="page.welcome.p3.term"
+        tag="p"
+      >
+        <template #t1>
+          <strong>{{ t('page.welcome.p3.t1') }}</strong>
+        </template>
+        <template #t2>
+          <strong>{{ t('page.welcome.p3.t2') }}</strong>
+        </template>
+        <template #t3>
+          <strong>{{ t('page.welcome.p3.t3') }}</strong>
+        </template>
+        <template #t4>
+          <strong>{{ t('page.welcome.p3.t4') }}</strong>
+        </template>
+      </i18n-t>
 
-      <p>
-        This means that <strong>no user data</strong>
-        is mined or analyzed to display ads, and every user viewing a
-        particular channel on Telegram sees <strong>the same sponsored messages</strong>.
-      </p>
+      <i18n-t
+        keypath="page.welcome.p4.term"
+        tag="p"
+      >
+        <template #t1>
+          <strong>{{ t('page.welcome.p4.t1') }}</strong>
+        </template>
+        <template #t2>
+          <strong>{{ t('page.welcome.p4.t2') }}</strong>
+        </template>
+      </i18n-t>
 
       <video
         :class="$style.sponsoredMessagesVideo"
@@ -53,53 +85,76 @@
         muted
       />
 
-      <h3>Context-based advertising</h3>
+      <h3>{{ t('page.welcome.title3') }}</h3>
 
-      <p>
-        Advertisers can choose the <strong>language</strong> and approximate
-        <strong>topics</strong> of channels where their ads will be displayed.
-        It is also possible to choose <strong>specific channels</strong>
-        where a certain ad will be shown – or add specific channels where it will
-        <em>not</em> be displayed.
-      </p>
+      <i18n-t
+        keypath="page.welcome.p5.term"
+        tag="p"
+      >
+        <template #t1>
+          <strong>{{ t('page.welcome.p5.t1') }}</strong>
+        </template>
+        <template #t2>
+          <strong>{{ t('page.welcome.p5.t2') }}</strong>
+        </template>
+        <template #t3>
+          <strong>{{ t('page.welcome.p5.t3') }}</strong>
+        </template>
+        <template #t4>
+          <strong>{{ t('page.welcome.p5.t4') }}</strong>
+        </template>
+      </i18n-t>
 
-      <p>
-        This allows advertisers to serve <strong>precise and efficient</strong>
-        ads while <strong>preserving user privacy</strong>.
-      </p>
+      <i18n-t
+        keypath="page.welcome.p6.term"
+        tag="p"
+      >
+        <template #t1>
+          <strong>{{ t('page.welcome.p6.t1') }}</strong>
+        </template>
+        <template #t2>
+          <strong>{{ t('page.welcome.p6.t2') }}</strong>
+        </template>
+      </i18n-t>
 
-      <h3>Privacy-conscious ads</h3>
+      <h3>{{ t('page.welcome.title4') }}</h3>
 
-      <p>
-        Unlike other apps, Telegram <strong>doesn’t track or profile users</strong>
-        based on their interactions with sponsored messages or other activities.
-        We also <strong>prevent external links</strong> in sponsored messages
-        to ensure that third parties can’t spy on our users. We believe that everyone
-        has the right to privacy, and technological platforms should respect that.
-      </p>
+      <i18n-t
+        keypath="page.welcome.p7.term"
+        tag="p"
+      >
+        <template #t1>
+          <strong>{{ t('page.welcome.p7.t1') }}</strong>
+        </template>
+        <template #t2>
+          <strong>{{ t('page.welcome.p7.t2') }}</strong>
+        </template>
+      </i18n-t>
 
-      <h3>Revenue sharing with channel owners</h3>
+      <h3>{{ t('page.welcome.title5') }}</h3>
 
-      <p>
-        Sponsored Messages are currently in test mode. Once they are fully launched
-        and allow Telegram to cover its basic costs, we will start sharing ad revenue
-        with the owners of public channels in which sponsored messages are displayed.
-      </p>
+      <p>{{ t('page.welcome.p8') }}</p>
 
-      <h3>Getting started</h3>
+      <h3>{{ t('page.welcome.title6') }}</h3>
 
-      <p>
-        Telegram welcomes all responsible advertisers. Anyone can study Telegram's
-        <a href="https://promote.telegram.org/guidelines">Ad Policies and Guidelines</a>,
-        <strong>create an account</strong> on the Ad Platform and
-        <strong>try out the interface</strong>. For a detailed overview of the platform, see
-        <a href="https://promote.telegram.org/getting-started">this guide</a>.
-      </p>
+      <i18n-t
+        keypath="page.welcome.p9.term"
+        tag="p"
+      >
+        <template #t1>
+          <a href="https://promote.telegram.org/guidelines">{{ t('page.welcome.p9.t1') }}</a>
+        </template>
+        <template #t2>
+          <strong>{{ t('page.welcome.p9.t2') }}</strong>
+        </template>
+        <template #t3>
+          <strong>{{ t('page.welcome.p9.t3') }}</strong>
+        </template>
+        <template #t4>
+          <a href="https://promote.telegram.org/getting-started">{{ t('page.welcome.p9.t4') }}</a>
+        </template>
+      </i18n-t>
     </div>
-
-    <Button :class="$style.button">
-      Log In
-    </Button>
   </div>
 </template>
 
@@ -109,13 +164,13 @@ import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
-import { Button } from '../components'
+import { AuthWidget } from '../components'
 import { useUser } from '../store'
 import { Route } from '../lib'
 
 export default defineComponent({
   components: {
-    Button,
+    AuthWidget,
   },
 
   setup() {
@@ -180,6 +235,6 @@ export default defineComponent({
 
 .button {
   width 210px
-  margin 30px 0 12px
+  margin 30px auto 12px
 }
 </style>

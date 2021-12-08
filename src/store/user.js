@@ -17,7 +17,6 @@ export default defineStore('user', {
       const user = appStorage.get(USER_KEY)
       // TODO: check auth
       const userValid = user !== undefined
-      console.log('user', user, userValid)
 
       if (userValid) {
         this.login(user)

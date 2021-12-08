@@ -1,3 +1,72 @@
 page:
   welcome:
-    title: 'Test'
+    title1: Telegram Ad Platform
+
+    p1:
+      term: Telegram provides a {t1} messaging service for more than {t2} around the world.
+            In addition to sending private messages and chatting in private groups, Telegram users can subscribe to {t3}.
+      t1: free and secure
+      t2: 500 million monthly active users
+      t3: public one-to-many channels
+
+    p2:
+      term: Every month, Telegram users generate over {t1} in one-to-many channels.
+      t1: 500 billion views
+
+    title2: Advertising on Telegram
+
+    p3:
+      term: Sponsored messages on Telegram are displayed in {t1} with {t2} subscribers and are limited to {t3}.
+            Sponsored Messages are based solely on the {t4} of the public channels in which they are shown.
+      t1: large public one-to-many channels
+      t2: 1000+
+      t3: 160 characters
+      t4: topic
+
+    p4:
+      term: This means that {t1} is mined or analyzed to display ads, and every user viewing
+            a particular channel on Telegram sees {t2}.
+      t1: no user data
+      t2: the same sponsored messages
+
+    title3: Context-based advertising
+
+    p5:
+      term: Advertisers can choose the {t1} and approximate {t2} of channels where their ads will be displayed.
+            It is also possible to choose {t3} where a certain ad will be shown – or add specific channels where it will {t4} be displayed.
+      t1: language
+      t2: topics
+      t3: specific channels
+      t4: not
+
+    p6:
+      term: This allows advertisers to serve {t1} ads while {t2}.
+      t1: precise and efficient
+      t2: preserving user privacy
+
+    title4: Privacy-conscious ads
+
+    p7:
+      term: Unlike other apps, Telegram {t1}
+            based on their interactions with sponsored messages or other activities.
+            We also {t2} in sponsored messages
+            to ensure that third parties can’t spy on our users. We believe that everyone
+            has the right to privacy, and technological platforms should respect that.
+      t1: doesn’t track or profile users
+      t2: prevent external links
+
+    title5: Revenue sharing with channel owners
+
+    p8: Sponsored Messages are currently in test mode. Once they are fully launched
+        and allow Telegram to cover its basic costs, we will start sharing ad revenue
+        with the owners of public channels in which sponsored messages are displayed.
+
+    title6: Getting started
+
+    p9:
+      term: Telegram welcomes all responsible advertisers. Anyone can study Telegram's
+            {t1}, {t2} on the Ad Platform and {t3}. For a detailed overview of the platform, see {t4}.
+      t1: Ad Policies and Guidelines
+      t2: create an account
+      t3: try out the interface
+      t4: this guide
