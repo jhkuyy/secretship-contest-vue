@@ -1,5 +1,7 @@
 <template>
-  <h1>404</h1>
+  <div :class="$style.header">
+    Header
+  </div>
 </template>
 
 <script>
@@ -8,6 +10,6 @@ import { defineComponent } from 'vue'
 export default defineComponent({})
 </script>
 
-<style>
-
+<style lang="stylus" module>
+.header {}
 </style>

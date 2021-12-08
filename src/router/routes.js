@@ -11,29 +11,42 @@ export default [
     },
   },
   {
-    path: '/apps',
-    component: () => import('../views/App/AppLayout.vue'),
+    component: () => import('../views/ApplicationLayout/ApplicationLayout.vue'),
     children: [
       {
-        name: Route.APP_LIST,
-        path: '',
-        component: () => import('../views/App/AppList.vue'),
-        meta: {
-          guards: [RouteGuard.AUTH],
-        },
+        path: '/apps',
+        component: () => import('../views/App/AppLayout.vue'),
+        children: [
+          {
+            name: Route.APP_LIST,
+            path: '',
+            component: () => import('../views/App/AppList.vue'),
+            meta: {
+              guards: [RouteGuard.AUTH],
+            },
+          },
+          {
+            name: Route.APP_ADD,
+            path: 'add',
+            component: () => import('../views/App/AppAdd.vue'),
+            meta: {
+              guards: [RouteGuard.AUTH],
+            },
+          },
+          {
+            name: Route.APP_DETAILS,
+            path: 'details/:id',
+            component: () => import('../views/App/AppDetails.vue'),
+            meta: {
+              guards: [RouteGuard.AUTH],
+            },
+          },
+        ],
       },
       {
-        name: Route.APP_ADD,
-        path: 'add',
-        component: () => import('../views/App/AppAdd.vue'),
-        meta: {
-          guards: [RouteGuard.AUTH],
-        },
-      },
-      {
-        name: Route.APP_DETAILS,
-        path: 'details/:id',
-        component: () => import('../views/App/AppDetails.vue'),
+        name: Route.PROFILE_EDIT,
+        path: '/profile-edit',
+        component: () => import('../views/ProfileEdit.vue'),
         meta: {
           guards: [RouteGuard.AUTH],
         },
@@ -41,15 +54,7 @@ export default [
     ],
   },
   {
-    name: Route.PROFILE_EDIT,
-    path: '/profile-edit',
-    component: () => import('../views/ProfileEdit.vue'),
-    meta: {
-      guards: [RouteGuard.AUTH],
-    },
-  },
-  {
     path: '/:pathMatch(.*)*',
-    component: () => import('../views/NotFound.vue'),
+    redirect: '/',
   },
 ]
