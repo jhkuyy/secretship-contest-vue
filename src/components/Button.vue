@@ -46,7 +46,7 @@ export default defineComponent({
   line-height: 20px
   font-weight: 600
   padding: 9px 22px
-  background-color: #3c9ff0
+  background-color: $colors.primary
   transition: background-color .2s ease
   text-transform: none
   color: #fff
@@ -55,9 +55,24 @@ export default defineComponent({
   white-space: nowrap
   vertical-align: middle
   text-align: center
+
+  &[disabled] {
+    pointer-events: none
+    color: rgba(255, 255, 255, 0.6)
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($colors.primary, 10%)
+  }
+
+  &:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.13)
+  }
 }
 
 .block {
-  width 100%
+  width: 100%
 }
 </style>
