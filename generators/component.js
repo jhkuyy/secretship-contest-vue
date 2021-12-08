@@ -1,5 +1,5 @@
 const componentTemplate = `<template>
-  <div :class="$style.{{camelCase name}}"></div>
+  <div :class="$style.root"></div>
 </template>
 
 <script>
