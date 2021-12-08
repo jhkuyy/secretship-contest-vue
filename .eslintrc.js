@@ -1,4 +1,4 @@
-const errorIfProd = process.env.ENV === 'production' ? 'error' : 'warn'
+const errorIfProd = process.env.NODE_ENV === 'production' ? 'error' : 'warn'
 
 module.exports = {
   root: true,
