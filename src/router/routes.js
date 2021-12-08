@@ -11,10 +11,11 @@ export default [
     },
   },
   {
+    path: '/',
     component: () => import('../views/ApplicationLayout/ApplicationLayout.vue'),
     children: [
       {
-        path: '/apps',
+        path: 'apps',
         component: () => import('../views/App/AppLayout.vue'),
         children: [
           {
