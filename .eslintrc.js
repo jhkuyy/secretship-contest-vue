@@ -1,3 +1,5 @@
+const errorIfProd = process.env.ENV === 'production' ? 'error' : 'warn'
+
 module.exports = {
   root: true,
 
@@ -21,8 +23,8 @@ module.exports = {
   ],
 
   rules: {
-    'no-unused-vars': 'warn',
-    'no-debugger': process.env.ENV === 'production' ? 'error' : 'warn',
+    'no-unused-vars': errorIfProd,
+    'no-debugger': errorIfProd,
     semi: ['error', 'never'],
     'import/no-extraneous-dependencies': ['error', { packageDir: './' }],
   },
