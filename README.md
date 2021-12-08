@@ -6,3 +6,4 @@
 * add anchor prop to <Header />
 * add <Blockquote />
 * add <TextInput />
+* add modals functionality
