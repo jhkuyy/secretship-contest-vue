@@ -1,8 +1,10 @@
 <template>
-  <div :class="[$style.header, 'container']">
-    <Logo :class="$style.logo" />
+  <div class="container">
+    <div :class="$style.header">
+      <Logo :class="$style.logo" />
 
-    <UserChip />
+      <UserChip />
+    </div>
   </div>
 </template>
 

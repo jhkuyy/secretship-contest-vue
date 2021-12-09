@@ -74,11 +74,27 @@ page:
   app_list:
     button_add: Add application
 
+    apps_table:
+      column:
+        name: Name
+        balance: Balance
+        created_at: Created At
+
   app_details:
     tabs:
       wallet: Wallet
       users: Users
       settings: Settings
+
+    transactions_title: Transactions
+
+    transactions_table:
+      column:
+        date: Date
+        address: From / To
+        amount: Amount
+
+
 
 user_chip:
   menu:
