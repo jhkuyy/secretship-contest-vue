@@ -5,7 +5,7 @@ import vitePluginEslint from 'vite-plugin-eslint'
 import vitePluginVue from '@vitejs/plugin-vue'
 import vitePluginBabel from 'vite-babel-plugin'
 import vitePluginVueI18n from '@intlify/vite-plugin-vue-i18n'
-import viteSvgIcons from 'vite-plugin-svg-icons'
+import vitePlugSvgIcons from 'vite-plugin-svg-icons'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -26,14 +26,14 @@ export default defineConfig({
     vitePluginVueI18n({
       include: path.resolve(__dirname, './src/i18n/locales/**'),
     }),
-    viteSvgIcons({
+    vitePlugSvgIcons({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/images/sprite')],
       symbolId: 'icon-[dir]-[name]',
     }),
   ],
 
   server: {
-    port: 80,
+    port: 8080,
   },
 
   css: {
