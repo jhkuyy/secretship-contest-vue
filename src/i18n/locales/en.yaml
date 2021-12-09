@@ -70,3 +70,9 @@ page:
       t2: create an account
       t3: try out the interface
       t4: this guide
+
+user_chip:
+  menu:
+    profile_edit: Edit Account Info
+    help: Help
+    logout: Logout

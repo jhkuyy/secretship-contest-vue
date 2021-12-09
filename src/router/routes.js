@@ -52,6 +52,14 @@ export default [
           guards: [RouteGuard.AUTH],
         },
       },
+      {
+        name: Route.HELP,
+        path: '/help',
+        component: () => import('../views/HelpScreen.vue'),
+        meta: {
+          guards: [RouteGuard.AUTH],
+        },
+      },
     ],
   },
   {

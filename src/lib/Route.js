@@ -5,4 +5,5 @@ export default {
   APP_LIST: 'route:app-list',
   PROFILE_EDIT: 'route:profile-edit',
   NOT_FOUND: 'route:not-found',
+  HELP: 'route:help',
 }

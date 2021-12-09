@@ -6,8 +6,10 @@
     <Icon
       :class="$style.icon"
       :size="24"
+      color="#2a96ef"
       name="logo"
     />
+
     Telegram Ads
   </router-link>
 </template>
@@ -25,15 +27,19 @@ export default defineComponent({
 
 <style lang="stylus" module>
 .root {
-  color: darken($colors.primary, 10%)
-  font-size 16px
-  font-weight 600
-  line-height 20px
-  display inline-flex
-  align-items center
+  color: $colors.primary
+  font-size: 16px
+  font-weight: 600
+  line-height: 20px
+  display: inline-flex
+  align-items: center
+
+  &:hover {
+    text-decoration: underline
+  }
 }
 
 .icon {
-  margin-right 8px
+  margin-right: 8px
 }
 </style>
