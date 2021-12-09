@@ -36,6 +36,7 @@ export default defineConfig({
     port: 80,
   },
 
+  base: '/secretship-contest-vue/',
   build: {
     outDir: './docs',
   },
