@@ -54,6 +54,10 @@ export default [
     ],
   },
   {
+    path: '/d',
+    component: () => import('../views/PlayGround.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/',
   },

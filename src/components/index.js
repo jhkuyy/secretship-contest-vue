@@ -1,3 +1,6 @@
 export { default as AuthWidget } from './AuthWidget.vue'
 export { default as Button } from './Button.vue'
+export { default as FormControlWrapper } from './FormControlWrapper.vue'
+export { default as FormMultiselect } from './FormMultiselect.vue'
+export { default as FormTextInput } from './FormTextInput.vue'
 export { default as LocaleSelector } from './LocaleSelector.vue'
