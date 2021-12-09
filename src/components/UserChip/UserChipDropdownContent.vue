@@ -37,12 +37,7 @@
 </template>
 
 <script>
-import { computed, defineComponent } from 'vue'
-import { useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
-import { storeToRefs } from 'pinia'
-import { Route } from '../../lib'
-import { useUser } from '../../store'
+import { defineComponent } from 'vue'
 import Avatar from '../Avatar.vue'
 import Icon from '../Icon.vue'
 import Nav from '../Nav.vue'
@@ -54,34 +49,15 @@ export default defineComponent({
     Nav,
   },
 
-  setup() {
-    const router = useRouter()
-    const { t } = useI18n()
-    const store = useUser()
-    const { user } = storeToRefs(store)
-
-    const menuItems = computed(() => ([
-      {
-        action: () => router.push({ name: Route.PROFILE_EDIT }),
-        icon: 'pencil',
-        name: t('user_chip.menu.profile_edit'),
-      },
-      {
-        action: () => router.push({ name: Route.HELP }),
-        icon: 'help',
-        name: t('user_chip.menu.help'),
-      },
-      {
-        action: () => {
-          store.logout()
-          router.push({ name: Route.WELCOME })
-        },
-        icon: 'logout',
-        name: t('user_chip.menu.logout'),
-      },
-    ]))
-
-    return { menuItems, user }
+  props: {
+    menuItems: {
+      type: Array,
+      required: true,
+    },
+    user: {
+      type: Object,
+      required: true,
+    },
   },
 })
 </script>
