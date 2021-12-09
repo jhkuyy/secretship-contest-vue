@@ -1,5 +1,9 @@
 <template>
   <div :class="$style.wrapper">
+    <div style="display:flex">
+      <div :class="$style.colorTest1" />
+      <div :class="$style.colorTest2" />
+    </div>
     <FormMultiselect
       v-model="sample4"
       style="max-width: 370px"
@@ -66,5 +70,16 @@ export default defineComponent({
   display: grid
   place-items: center
   gap: 16px
+}
+
+.colorTest1 {
+  width: 200px
+  height: 100px
+  background-color: $colors.gray400
+}
+.colorTest2 {
+  width: 200px
+  height: 100px
+  background-color: #d9d9d9
 }
 </style>

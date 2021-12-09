@@ -43,9 +43,7 @@ export default defineComponent({
   cursor: pointer
 
   &:hover {
-    // TODO: move colors to variables
-    background-color: #f4f4f4;
-    color: #222;
+    background-color: $colors.gray100
   }
 }
 </style>
