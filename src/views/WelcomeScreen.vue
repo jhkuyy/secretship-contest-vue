@@ -1,7 +1,7 @@
 <template>
   <div :class="['container', $style.root]">
     <img
-      src="../assets/images/ads_intro.svg"
+      src="../assets/images/welcome/ads_intro.svg"
       width="134"
       height="212"
     >

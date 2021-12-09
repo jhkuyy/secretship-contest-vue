@@ -1,13 +1,68 @@
 <template>
-  <h1>Help</h1>
+  <div :class="[$style.root, 'container']">
+    <div :class="$style.content">
+      <h1>Telegram Ad Platform Explained</h1>
+
+      <Blockquote>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Eligendi et eum in <strong>molestiae nisi</strong> porro quaerat
+        <a href="#"><strong>quibusdam</strong></a>  quos vero!
+      </Blockquote>
+
+      <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Accusantium aut eius eos ex nulla, ratione reiciendis sint voluptas?
+        Amet at atque blanditiis consectetur dolorem est et fuga id nobis nulla,
+        officia saepe ut, voluptatum. Accusantium assumenda dolor ipsam magnam molestias,
+        nulla perspiciatis, placeat qui quidem sit tempore voluptas voluptate voluptatum!
+      </p>
+
+      <h2>Lorem ipsum dolor sit amet, consectetur adipisicing.</h2>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Aliquam amet aspernatur blanditiis fugit maiores ratione voluptatibus!
+        Alias architecto aspernatur atque consequuntur, cum deleniti deserunt dicta
+        dolorum eum exercitationem expedita facilis harum, incidunt laborum laudantium
+        molestias necessitatibus nesciunt nisi officiis,
+        omnis quos ratione recusandae rem repellendus suscipit veniam vero? Voluptas?
+      </p>
+
+      <Blockquote>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Eum, facere, nemo? Consectetur corporis culpa cum distinctio exercitationem harum hic,
+        impedit inventore, ipsa nostrum, perspiciatis quae quos sit tempore vel voluptatibus.
+      </Blockquote>
+
+      <h2>Lorem ipsum dolor sit amet.</h2>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Blanditiis consequatur deleniti eligendi eos hic iusto,
+        laudantium molestiae <strong>molestias nemo nulla</strong> reprehenderit tempora velit?
+        Aperiam dolores earum est explicabo illo minus, mollitia necessitatibus quas quibusdam quis,
+        reiciendis rem reprehenderit sapiente vel voluptatum.
+        Adipisci autem beatae culpa facere pariatur voluptas?
+        Aliquid corporis dicta ea <strong>eius eveniet itaque</strong>
+        rem sapiente veniam voluptas voluptatem.
+      </p>
+    </div>
+  </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({})
+<script setup>
+import { Blockquote } from '../components'
 </script>
 
-<style scoped>
+<style lang="stylus" module>
+.root {
+  padding: 0 15px 60px
+}
 
+.content {
+  max-width: 800px
+  margin 0 auto
+}
 </style>

@@ -23,7 +23,7 @@ export default defineComponent({
   min-height: 64px
   display: flex
   align-items: center
-  padding: 15px
+  padding: 14px 0
   // TODO: move color to variables
   border-bottom: 1px solid #e6e6e6;
 }
