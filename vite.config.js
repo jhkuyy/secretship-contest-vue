@@ -36,6 +36,10 @@ export default defineConfig({
     port: 80,
   },
 
+  build: {
+    outDir: './docs',
+  },
+
   css: {
     modules: {
       generateScopedName: isDev ? generateRichClassName : undefined,

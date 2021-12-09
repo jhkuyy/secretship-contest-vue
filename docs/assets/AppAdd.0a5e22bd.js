@@ -1,0 +1,1 @@
+import{_ as e}from"./index.ed6144ff.js";import{h as o,o as n,j as r}from"./vendor.37d275cf.js";const t=o({});function p(s,d,a,c,f,_){return n(),r("h1",null,"App Add")}var l=e(t,[["render",p]]);export{l as default};

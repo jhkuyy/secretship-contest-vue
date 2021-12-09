@@ -1,0 +1,1 @@
+import{_ as e}from"./index.ed6144ff.js";import{h as o,o as r,j as t}from"./vendor.37d275cf.js";const n=o({});function s(f,a,c,d,i,p){return r(),t("h1",null,"Profile Edit")}var m=e(n,[["render",s]]);export{m as default};
