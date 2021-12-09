@@ -71,6 +71,15 @@ page:
       t3: try out the interface
       t4: this guide
 
+  app_list:
+    button_add: Add application
+
+  app_details:
+    tabs:
+      wallet: Wallet
+      users: Users
+      settings: Settings
+
 user_chip:
   menu:
     profile_edit: Edit Account Info

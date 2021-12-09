@@ -1,11 +1,15 @@
 <template>
   <router-link
     v-if="to !== undefined"
-    :class="wrapperClasses"
+    :to="to"
     custom
   >
-    <template #default="{ href }">
-      <a :href="href">
+    <template #default="{ href, navigate }">
+      <a
+        :class="wrapperClasses"
+        :href="href"
+        @click="navigate"
+      >
         <slot />
       </a>
     </template>
@@ -65,6 +69,7 @@ export default defineComponent({
   &:focus,
   &:active {
     background-color: darken($colors.primary, 10%)
+    color: #fff
   }
 
   &:active {

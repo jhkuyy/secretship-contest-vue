@@ -1,7 +1,7 @@
 <template>
   <router-link
     :class="$style.root"
-    to="/"
+    :to="{ name: route }"
   >
     <Icon
       :class="$style.icon"
@@ -15,12 +15,24 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
+import { storeToRefs } from 'pinia'
+import { Route } from '../lib'
+import { useUser } from '../store'
 import Icon from './Icon.vue'
 
 export default defineComponent({
   components: {
     Icon,
+  },
+
+  setup() {
+    const user = useUser()
+    const { isAuthorized } = storeToRefs(user)
+
+    const route = computed(() => (isAuthorized ? Route.APP_LIST : Route.WELCOME))
+
+    return { route }
   },
 })
 </script>
