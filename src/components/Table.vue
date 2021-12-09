@@ -25,7 +25,9 @@
         <slot
           :name="column.id"
           :value="item[column.id]"
-        />
+        >
+          {{ item[column.id] }}
+        </slot>
       </td>
     </tr>
   </table>

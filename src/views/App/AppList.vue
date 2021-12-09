@@ -53,9 +53,9 @@ export default defineComponent({
     const { t } = useI18n()
 
     const columns = [
-      { id: 'link', name: t('page.app_details.apps_table.column.name'), sortable: true },
-      { id: 'balance', name: t('page.app_details.apps_table.column.balance'), sortable: false },
-      { id: 'createdAt', name: t('page.app_details.apps_table.column.created_at'), sortable: true },
+      { id: 'link', name: t('page.app_list.apps_table.column.name'), sortable: true },
+      { id: 'balance', name: t('page.app_list.apps_table.column.balance'), sortable: false },
+      { id: 'createdAt', name: t('page.app_list.apps_table.column.created_at'), sortable: true },
     ]
 
     const items = [

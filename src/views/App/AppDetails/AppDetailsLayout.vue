@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-3 p-0">
+  <div class="container mt-3">
     <Tabs
       :active="activeTab"
       :items="tabs"
