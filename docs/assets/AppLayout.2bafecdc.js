@@ -1,1 +1,0 @@
-import{_ as o}from"./index.ed6144ff.js";import{r,o as t,j as n,l as s,F as a,k as c}from"./vendor.37d275cf.js";const _={},d=c("div",null,"Tabs",-1);function f(l,i){const e=r("router-view");return t(),n(a,null,[d,s(e)],64)}var u=o(_,[["render",f]]);export{u as default};
