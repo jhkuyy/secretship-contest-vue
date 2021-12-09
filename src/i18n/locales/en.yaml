@@ -80,6 +80,12 @@ page:
       users: Users
       settings: Settings
 
+    apps_table:
+      column:
+        name: Name
+        balance: Balance
+        created_at: Created At
+
 user_chip:
   menu:
     profile_edit: Edit Account Info
