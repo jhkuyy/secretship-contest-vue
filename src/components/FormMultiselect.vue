@@ -113,6 +113,7 @@ export default defineComponent({
     select(index) {
       this.$emit('update:modelValue', [...this.modelValue, this.selectableItems[index]])
       this.focusItem(this.focusedItemIndex - 1)
+      this.query = ''
     },
 
     focusItem(index) {
@@ -126,7 +127,6 @@ export default defineComponent({
       this.focusedItemIndex = 0
     },
     onInputKeydown({ key, target: { value } }) {
-      // console.log('KD', event.key) // ArrowDown ArrowUp
       if (key === 'Backspace' && value === '' && this.filled) {
         this.remove(this.modelValue.length - 1)
       }
@@ -170,7 +170,7 @@ export default defineComponent({
   border-radius: 4px
   margin: 3px 6px 3px 0
   padding-left: 9px
-  color: #fff // FIXME
+  color: $colors.white
   display: flex
   align-items: center
 }
@@ -187,7 +187,7 @@ export default defineComponent({
   &::after {
     grid-column: 1 / -1
     grid-row: 1 / -1
-    background: #fff; // FIXME
+    background: $colors.white
     content: '';
     width: 13px;
     height: 2px;
@@ -209,9 +209,9 @@ export default defineComponent({
   position: absolute
   left: 0
   right: 0
-  background: #fff // FIXME
+  background: $colors.white
   padding: 7px 0
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.15) // FIXME ?
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.15)
   transition: all .2s ease
   max-height: 220px
   overflow: auto
@@ -230,11 +230,11 @@ export default defineComponent({
     cursor: pointer
 
     &_focused {
-      background: #f2f2f2 // FIXME
+      background: $colors.gray100
     }
 
     &_notFound {
-      color: #a8a8a8 // FIXME
+      color: $colors.gray500
       cursor: auto
     }
   }

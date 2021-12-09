@@ -43,17 +43,17 @@ export default defineComponent({
   transition: all .2s ease
   border-radius: 16px
   color: darken($colors.primary, 10%)
-  -webkit-font-smoothing: auto
   cursor: pointer
+  -webkit-font-smoothing: auto
 
   &:hover {
-    background-color: #f0f6fa;
-    text-decoration: none;
+    background-color: lighten($colors.primary, 92%)
+    text-decoration: none
   }
 
   &.active {
     background-color: $colors.primary
-    color: #fff
+    color: $colors.white
   }
 
   &:not(:first-child) {

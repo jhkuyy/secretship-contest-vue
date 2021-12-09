@@ -1,6 +1,12 @@
 <template>
   <div>
-    <div :class="{ [$style.body]: true, [$style.body_filled]: filled }">
+    <div
+      :class="{
+        [$style.body]: true,
+        [$style.body_filled]: filled,
+        [$style.body_withValidationError]: validationError
+      }"
+    >
       <slot :hasValidationError="!isValid" />
 
       <div
@@ -83,7 +89,7 @@ $label-downscale-multiplier = 0.93
 .body {
   border-radius: 6px
   transition: box-shadow .2s ease
-  box-shadow: inset 0 0 0 1px #d9d9d9
+  box-shadow: inset 0 0 0 1px $colors.gray400
   position: relative
   display: grid
   grid-template: 1fr / 1fr
@@ -102,6 +108,10 @@ $label-downscale-multiplier = 0.93
     .label::after {
       color: $colors.primary
     }
+  }
+
+  &_withValidationError {
+    box-shadow: inset 0 0 0 1px $colors.danger
   }
 
   &_filled,
@@ -146,7 +156,7 @@ $label-downscale-multiplier = 0.93
   }
 
   &::after {
-    color: gray // FIXME
+    color: $colors.gray600
     content: attr(data-label)
     display: block
     transform-origin: left
@@ -159,11 +169,12 @@ $label-downscale-multiplier = 0.93
   grid-template: 1fr / 1fr
   padding: 10px 5px 0 $padding
   font-size: 13px
-  color: gray // FIXME
+  color: $colors.gray600
 }
 
 .errorMessage {
-  color: crimson // FIXME
+  color: $colors.danger
+  font-weight: 500
 }
 
 .fadeTransition {
@@ -195,7 +206,7 @@ $label-downscale-multiplier = 0.93
   width: 20px
   height: 20px
   border-radius: 50%
-  background: #c0c4c7 // FIXME
+  background: $colors.gray500
 }
 
 .descriptionTooltip {
@@ -209,7 +220,7 @@ $label-downscale-multiplier = 0.93
   z-index: 1
   text-align: center
   padding: 11px 15px 10px
-  color: #fff // FIXME
+  color: $colors.white
   transition: all .2s ease
   transition-delay: 0.25s
   opacity: 0
@@ -224,19 +235,19 @@ $label-downscale-multiplier = 0.93
   top: 0;
   bottom: 0
   border-radius: 8px
-  background-color: #202426 // FIXME
+  background-color: $colors.gray900
   opacity: 0.85
   z-index: -1
 
   &::before {
-    content: '';
-    position: absolute;
-    display: inline-block;
-    width: 18px;
-    height: 8px;
-    margin-top: -1px;
-    right: 15px;
-    top: 100%;
+    content: ''
+    position: absolute
+    display: inline-block
+    width: 18px
+    height: 8px
+    margin-top: -1px
+    right: 15px
+    top: 100%
     background: inherit
     clip-path: polygon(0 0, 100% 0, 50% 100%)
   }

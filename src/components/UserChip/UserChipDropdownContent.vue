@@ -81,7 +81,6 @@ export default defineComponent({
 
 .item {
   padding: 6px 15px
-  color: #000
 }
 
 .avatar {

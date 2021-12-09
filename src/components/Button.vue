@@ -53,7 +53,7 @@ export default defineComponent({
   background-color: $colors.primary
   transition: background-color .2s ease
   text-transform: none
-  color: #fff
+  color: $colors.white
   border-radius: 6px
   user-select: none
   white-space: nowrap
@@ -62,14 +62,14 @@ export default defineComponent({
 
   &[disabled] {
     pointer-events: none
-    color: rgba(255, 255, 255, 0.6)
+    color: alpha($colors.white, 0.6)
   }
 
   &:hover,
   &:focus,
   &:active {
     background-color: darken($colors.primary, 10%)
-    color: #fff
+    color: $colors.white
   }
 
   &:active {
