@@ -8,3 +8,4 @@
 * add modals functionality
 * delete /d route
 * rename src/store to stores
+* add eslint-plugin-comments

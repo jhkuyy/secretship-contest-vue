@@ -41,6 +41,7 @@
     "vite": "^2.6.4",
     "vite-babel-plugin": "^0.0.2",
     "vite-plugin-eslint": "^1.3.0",
+    "vite-plugin-svg-icons": "^1.0.5",
     "vue-eslint-parser": "^8.0.1",
     "vue-i18n-extract": "^2.0.4"
   }

@@ -28,15 +28,19 @@ export default defineComponent({
     const onTelegramAuth = ({
       id,
       first_name: firstName,
+      last_name: lastName,
       photo_url: photo,
+      auth_date: authDate,
       username,
       hash,
     }) => {
       emit('auth', {
         id,
         firstName,
+        lastName,
         photo,
         username,
+        authDate,
         hash,
       })
     }

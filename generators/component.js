@@ -1,5 +1,5 @@
 const componentTemplate = `<template>
-  <div :class="{{camelCase name}}"></div>
+  <div :class="$style.root"></div>
 </template>
 
 <script>
@@ -9,6 +9,9 @@ export default defineComponent({})
 </script>
 
 <style lang="stylus" module>
+.root {
+
+}
 </style>
 `
 
