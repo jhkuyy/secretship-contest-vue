@@ -80,6 +80,25 @@ page:
         balance: Balance
         created_at: Created At
 
+  app_add:
+    form:
+      label: Add app
+      name:
+        placeholder: App name
+        hintText: Should be at least 4 symbols long
+      link:
+        placeholder: App link
+      categories:
+        placeholder: App categories
+      button: Save
+      rule:
+        empty: Can not be empty!
+        url: Not valid url!
+
+    apps_empty:
+      title: You have no ads yet…
+      subtitle: Create your first ad by clicking the button below.
+
   app_users:
     title: App users
     empty: The application has no users
@@ -109,3 +128,7 @@ user_chip:
     profile_edit: Edit Account Info
     help: Help
     logout: Logout
+
+error_fetched:
+  text: Error loading
+  repeat: Reload

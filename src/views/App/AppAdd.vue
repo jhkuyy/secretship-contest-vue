@@ -5,24 +5,24 @@
       @submit="onSubmit"
     >
       <template #default="{ isAllFieldsValid }">
-        <FormLabel>App Add</FormLabel>
+        <FormLabel>{{ t('page.app_add.form.label') }}</FormLabel>
         <FormTextInput
-          v-model="appName"
+          v-model="app.name"
           :class="$style.input"
-          placeholder="App name"
-          hintText="Should be at least 4 symbols long"
+          :placeholder="t('page.app_add.form.name.placeholder')"
+          :hintText="t('page.app_add.form.name.hintText')"
           :rules="appNameRules"
         />
         <FormTextInput
-          v-model="appLink"
+          v-model="app.link"
           :class="$style.input"
-          placeholder="App link"
+          :placeholder="t('page.app_add.form.link.placeholder')"
           :rules="appLinkRules"
         />
         <FormMultiselect
-          v-model="appCategories"
+          v-model="app.categories"
           :class="$style.input"
-          placeholder="App categories"
+          :placeholder="t('page.app_add.form.categories.placeholder')"
           :items="categories"
           :rules="appCategoriesRules"
         />
@@ -32,7 +32,7 @@
           type="submit"
           :disabled="!isAllFieldsValid"
         >
-          Save
+          {{ t('page.app_add.form.button') }}
         </Button>
       </template>
     </Form>
@@ -42,6 +42,7 @@
 <script>
 import { defineComponent } from 'vue'
 
+import { useI18n } from 'vue-i18n'
 import {
   Form,
   FormLabel,
@@ -50,29 +51,8 @@ import {
   Button,
 } from '../../components'
 import { apiClient } from '../../core/services'
+import { Route } from '../../lib'
 
-const appNameRules = [
-  (name) => (!name ? 'Can not be empty!' : undefined),
-  (name) => (name.length < 4 ? 'Too short!' : undefined),
-]
-
-const appLinkRules = [
-  (link) => (!link ? 'Can not be empty!' : undefined),
-  (link) => {
-    try {
-      new URL(link) // eslint-disable-line no-new
-    } catch {
-      return 'Not valid url!'
-    }
-    return undefined
-  },
-]
-
-const appCategoriesRules = [
-  (categories) => (categories.length === 0 ? 'Can not be empty!' : undefined),
-]
-
-// TODO: use i18n
 export default defineComponent({
   components: {
     Form,
@@ -82,20 +62,50 @@ export default defineComponent({
     Button,
   },
 
+  setup() {
+    const { t } = useI18n()
+
+    const appNameRules = [
+      (name) => (!name ? t('page.app_add.form.rule.empty') : undefined),
+    ]
+
+    const appLinkRules = [
+      (link) => (!link ? t('page.app_add.form.rule.empty') : undefined),
+      (link) => {
+        try {
+          new URL(link) // eslint-disable-line no-new
+        } catch {
+          return t('page.app_add.form.rule.url')
+        }
+        return undefined
+      },
+    ]
+
+    const appCategoriesRules = [
+      (categories) => (categories.length === 0 ? t('page.app_add.form.rule.empty') : undefined),
+    ]
+
+    return {
+      t,
+      appNameRules,
+      appLinkRules,
+      appCategoriesRules,
+    }
+  },
+
   data: () => ({
-    appName: '',
-    appLink: '',
-    appCategories: [],
+    app: {
+      name: '',
+      link: '',
+      categories: [],
+    },
     categories: ['Game', 'Casino', 'Util'],
-    appNameRules,
-    appLinkRules,
-    appCategoriesRules,
   }),
 
   methods: {
-    onSubmit() {
-      // TODO: implement
-      apiClient.addApp({})
+    async onSubmit() {
+      await apiClient.addApp(this.app)
+      await this.$router.push({ name: Route.APP_LIST })
     },
   },
 })

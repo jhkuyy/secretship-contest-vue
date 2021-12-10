@@ -14,6 +14,8 @@ class ApiClient {
 
     const newApp = {
       id: apps.length + 1,
+      createdAt: new Date().getTime(),
+      balance: 0,
       ...app,
     }
 
