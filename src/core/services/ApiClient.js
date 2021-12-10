@@ -63,6 +63,7 @@ class ApiClient {
       this.#STORAGE_KEY,
       [
         ...apps.slice(0, index),
+        editedApp,
         ...apps.slice(index + 1),
       ],
     )

@@ -1,55 +1,68 @@
 <template>
-  <h4 class="my-3">
-    {{ t('page.app_details.wallet_title') }}
-  </h4>
-
-  <div class="d-flex align-items-center my-3">
-    <AppBalance
-      class="me-auto"
-      :balance="balance"
-    />
-
-    <Button
-      class="me-3"
-      @click="onDeposit"
-    >
-      {{ t('page.app_details.deposit') }}
-    </Button>
-    <Button @click="onWithdrawal">
-      {{ t('page.app_details.withdrawal') }}
-    </Button>
-  </div>
-
-  <h4 class="mt-5 mb-3">
-    {{ t('page.app_details.transactions_title') }}
-  </h4>
-
-  <Table
-    :columns="columns"
-    :items="items"
+  <LoadingWrapper
+    :loading="requestState === RequestState.LOADING"
+    :error="requestState === RequestState.ERROR"
+    @reload="fetchApps"
   >
-    <template #date="{ value }">
-      <DateChip :value="value" />
-    </template>
+    <h4 class="my-3">
+      {{ t('page.app_details.wallet_title') }}
+    </h4>
 
-    <template #amount="{ value }">
-      <div :class="value > 0 ? $style.amountPlus : $style.amountMinus">
-        <CurrencyChip :value="value" />
-      </div>
-    </template>
-  </Table>
+    <div class="d-flex align-items-center my-3">
+      <AppBalance
+        class="me-auto"
+        :balance="balance"
+      />
+
+      <Button
+        class="me-3"
+        @click="onDeposit"
+      >
+        {{ t('page.app_details.deposit') }}
+      </Button>
+      <Button @click="onWithdrawal">
+        {{ t('page.app_details.withdrawal') }}
+      </Button>
+    </div>
+
+    <h4 class="mt-5 mb-3">
+      {{ t('page.app_details.transactions_title') }}
+    </h4>
+
+    <Table
+      :columns="columns"
+      :items="items"
+    >
+      <template #date="{ value }">
+        <DateChip :value="value" />
+      </template>
+
+      <template #amount="{ value }">
+        <div :class="value > 0 ? $style.amountPlus : $style.amountMinus">
+          <CurrencyChip :value="value" />
+        </div>
+      </template>
+    </Table>
+  </LoadingWrapper>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import {
+  computed, defineComponent, onMounted, ref,
+} from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
 import {
   AppBalance,
   Button,
   CurrencyChip,
   DateChip,
+  LoadingWrapper,
   Table,
 } from '../../../components'
+import { useRequest } from '../../../composables'
+import { apiClient } from '../../../core/services'
+import { RequestState } from '../../../composables/useRequest'
 
 export default defineComponent({
   components: {
@@ -57,15 +70,38 @@ export default defineComponent({
     Button,
     CurrencyChip,
     DateChip,
+    LoadingWrapper,
     Table,
   },
 
   setup() {
     const { t } = useI18n()
-    const balance = ref(300)
+    const balance = ref(0)
+    const route = useRoute()
+    const apps = ref([])
 
-    const onDeposit = () => { balance.value += Math.round(Math.random() + 5) }
-    const onWithdrawal = () => { balance.value -= Math.round(Math.random() + 5) }
+    const app = computed(() => apps.value.find(({ id }) => id === Number(route.params.id)))
+
+    const [fetchApps, requestState] = useRequest(async () => {
+      apps.value = await apiClient.fetchApps()
+      balance.value = app.value.balance
+    })
+
+    const onDeposit = () => {
+      balance.value += Math.round(Math.random() + 5)
+      apiClient.editApp({
+        ...app.value,
+        balance: balance.value,
+      })
+    }
+
+    const onWithdrawal = () => {
+      balance.value -= Math.round(Math.random() + 5)
+      apiClient.editApp({
+        ...app.value,
+        balance: balance.value,
+      })
+    }
 
     const columns = [
       { id: 'date', name: t('page.app_details.transactions_table.column.date') },
@@ -106,6 +142,8 @@ export default defineComponent({
       },
     ]
 
+    onMounted(fetchApps)
+
     return {
       balance,
       onDeposit,
@@ -113,6 +151,9 @@ export default defineComponent({
       columns,
       items,
       t,
+      fetchApps,
+      requestState,
+      RequestState,
     }
   },
 })

@@ -103,6 +103,10 @@ page:
     title: App users
     empty: The application has no users
 
+  app_settings:
+    title: App settings
+    empty: The application settings
+
   app_details:
     tabs:
       wallet: Wallet
