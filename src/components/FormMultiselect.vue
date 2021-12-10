@@ -127,11 +127,11 @@ export default defineComponent({
       this.focusedItemIndex = 0
     },
     onInputKeydown({ key, target: { value } }) {
+      if (key === 'ArrowDown') this.focusItem(this.focusedItemIndex + 1)
+      if (key === 'ArrowUp') this.focusItem(this.focusedItemIndex - 1)
       if (key === 'Backspace' && value === '' && this.filled) {
         this.remove(this.modelValue.length - 1)
       }
-      if (key === 'ArrowDown') this.focusItem(this.focusedItemIndex + 1)
-      if (key === 'ArrowUp') this.focusItem(this.focusedItemIndex - 1)
     },
   },
 })

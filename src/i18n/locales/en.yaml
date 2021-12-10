@@ -90,6 +90,7 @@ page:
         placeholder: App link
       categories:
         placeholder: App categories
+        not_found: Categories not found
       button: Save
       rule:
         empty: Can not be empty!

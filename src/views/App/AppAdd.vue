@@ -25,6 +25,7 @@
           :placeholder="t('page.app_add.form.categories.placeholder')"
           :items="categories"
           :rules="appCategoriesRules"
+          :notFoundText="t('page.app_add.form.categories.not_found')"
         />
 
         <Button
