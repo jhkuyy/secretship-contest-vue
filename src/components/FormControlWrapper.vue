@@ -58,7 +58,7 @@
 <script>
 import { defineComponent, toRefs } from 'vue'
 
-import { useValidation, useForm } from '../composables'
+import { useValidation, useFormControl } from '../composables'
 
 export default defineComponent({
   props: {
@@ -73,7 +73,7 @@ export default defineComponent({
   setup(props) {
     const { controlValue, controlValueRules } = toRefs(props)
     const { isValid, validationError } = useValidation(controlValue, controlValueRules)
-    useForm(isValid)
+    useFormControl(isValid)
 
     return {
       isValid,
