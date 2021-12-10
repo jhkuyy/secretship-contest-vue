@@ -8,41 +8,46 @@
       {{ t('page.app_details.wallet_title') }}
     </h4>
 
-    <div class="d-flex align-items-center my-3">
-      <AppBalance
-        class="me-auto"
-        :balance="balance"
-      />
-
-      <Button
-        class="me-3"
-        @click="onDeposit"
-      >
-        {{ t('page.app_details.deposit') }}
-      </Button>
-      <Button @click="onWithdrawal">
-        {{ t('page.app_details.withdrawal') }}
-      </Button>
-    </div>
-
-    <h4 class="mt-5 mb-3">
-      {{ t('page.app_details.transactions_title') }}
-    </h4>
-
-    <Table
-      :columns="columns"
-      :items="items"
-    >
-      <template #date="{ value }">
-        <DateChip :value="value" />
-      </template>
-
-      <template #amount="{ value }">
-        <div :class="value > 0 ? $style.amountPlus : $style.amountMinus">
-          <CurrencyChip :value="value" />
+    <div class="my-3">
+      <div class="row">
+        <div class="col-sm-6">
+          <AppBalance
+            class="me-auto mb-3"
+            :balance="balance"
+          />
         </div>
-      </template>
-    </Table>
+        <div class="col-sm-6">
+          <Button
+            class="me-3"
+            @click="onDeposit"
+          >
+            {{ t('page.app_details.deposit') }}
+          </Button>
+          <Button @click="onWithdrawal">
+            {{ t('page.app_details.withdrawal') }}
+          </Button>
+        </div>
+      </div>
+
+      <h4 class="mt-5 mb-3">
+        {{ t('page.app_details.transactions_title') }}
+      </h4>
+
+      <Table
+        :columns="columns"
+        :items="items"
+      >
+        <template #date="{ value }">
+          <DateChip :value="value" />
+        </template>
+
+        <template #amount="{ value }">
+          <div :class="value > 0 ? $style.amountPlus : $style.amountMinus">
+            <CurrencyChip :value="value" />
+          </div>
+        </template>
+      </Table>
+    </div>
   </LoadingWrapper>
 </template>
 
