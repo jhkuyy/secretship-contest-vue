@@ -8,16 +8,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
 import { UserChip, Logo } from '../../components'
-
-export default defineComponent({
-  components: {
-    Logo,
-    UserChip,
-  },
-})
 </script>
 
 <style lang="stylus" module>
@@ -26,8 +18,7 @@ export default defineComponent({
   display: flex
   align-items: center
   padding: 14px 0
-  // TODO: move color to variables
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid $colors.gray300
 }
 
 .logo {

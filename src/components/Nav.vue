@@ -32,8 +32,8 @@ export default defineComponent({
 }
 
 .item {
-  display flex
-  align-items center
+  display: flex
+  align-items: center
   font-weight: 500
   line-height: 24px
   white-space: nowrap

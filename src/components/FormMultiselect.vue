@@ -188,10 +188,10 @@ export default defineComponent({
     grid-column: 1 / -1
     grid-row: 1 / -1
     background: $colors.white
-    content: '';
-    width: 13px;
-    height: 2px;
-    border-radius: 1px;
+    content: ''
+    width: 13px
+    height: 2px
+    border-radius: 1px
   }
 
   &::before {
@@ -205,8 +205,6 @@ export default defineComponent({
 .items {
   position: absolute
   top: calc(100% + 5px)
-
-  position: absolute
   left: 0
   right: 0
   background: $colors.white

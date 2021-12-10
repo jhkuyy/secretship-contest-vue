@@ -127,8 +127,7 @@ export default defineComponent({
 
 .tr:nth-child(even) {
   .td {
-    // TODO: move to vars
-    background-color: #f0f3f5;
+    background-color: $colors.gray100
   }
 }
 
@@ -183,7 +182,7 @@ export default defineComponent({
         }
 
         &::before {
-          transform: scale(0);
+          transform: scale(0)
         }
       }
     }
@@ -191,11 +190,11 @@ export default defineComponent({
     &.desc {
       .sort {
         &::after {
-          transform: scale(0);
+          transform: scale(0)
         }
 
         &::before {
-          transform: scale(1.25) translateY(2px);
+          transform: scale(1.25) translateY(2px)
         }
       }
     }

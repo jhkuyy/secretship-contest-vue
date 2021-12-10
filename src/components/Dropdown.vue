@@ -85,7 +85,7 @@ export default defineComponent({
   right: -1px
   margin: 4px 0 -2px 0
   border: 1px solid alpha($colors.black, 0.6)
-  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07)
   border-radius: 4px
   overflow: hidden
   min-width: 150px

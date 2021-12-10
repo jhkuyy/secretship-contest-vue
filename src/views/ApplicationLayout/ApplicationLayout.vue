@@ -3,17 +3,6 @@
   <router-view />
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
 import ApplicationHeader from './ApplicationHeader.vue'
-
-export default defineComponent({
-  components: {
-    ApplicationHeader,
-  },
-})
 </script>
-
-<style scoped>
-
-</style>
