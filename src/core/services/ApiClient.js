@@ -1,4 +1,4 @@
-import appStorage from '../AppStorage'
+import appStorage from './AppStorage'
 
 class ApiClient {
   #STORAGE_KEY = 'apps'

@@ -34,5 +34,10 @@ export default defineStore('user', {
       this.user = undefined
       appStorage.remove(USER_KEY)
     },
+
+    edit(payload) {
+      this.user = { ...this.user, ...payload }
+      appStorage.set(USER_KEY, this.user)
+    },
   },
 })

@@ -1,31 +1,34 @@
 <template>
-  <div :class="['container', $style.root]">
-    <h1>App Add</h1>
-
+  <div :class="['container d-flex flex-column align-items-center', $style.root]">
     <Form
       :class="$style.form"
       @submit="onSubmit"
     >
       <template #default="{ isAllFieldsValid }">
+        <FormLabel>App Add</FormLabel>
         <FormTextInput
           v-model="appName"
+          :class="$style.input"
           placeholder="App name"
           hintText="Should be at least 4 symbols long"
           :rules="appNameRules"
         />
         <FormTextInput
           v-model="appLink"
+          :class="$style.input"
           placeholder="App link"
           :rules="appLinkRules"
         />
         <FormMultiselect
           v-model="appCategories"
+          :class="$style.input"
           placeholder="App categories"
           :items="categories"
           :rules="appCategoriesRules"
         />
 
         <Button
+          :class="$style.submitButton"
           type="submit"
           :disabled="!isAllFieldsValid"
         >
@@ -41,10 +44,12 @@ import { defineComponent } from 'vue'
 
 import {
   Form,
+  FormLabel,
   FormTextInput,
   FormMultiselect,
   Button,
 } from '../../components'
+import { apiClient } from '../../core/services'
 
 const appNameRules = [
   (name) => (!name ? 'Can not be empty!' : undefined),
@@ -67,9 +72,11 @@ const appCategoriesRules = [
   (categories) => (categories.length === 0 ? 'Can not be empty!' : undefined),
 ]
 
+// TODO: use i18n
 export default defineComponent({
   components: {
     Form,
+    FormLabel,
     FormTextInput,
     FormMultiselect,
     Button,
@@ -87,18 +94,30 @@ export default defineComponent({
 
   methods: {
     onSubmit() {
-      console.log('>>')
+      // TODO: implement
+      apiClient.addApp({})
     },
   },
 })
 </script>
 
 <style lang="stylus"  module>
-.root {}
+.root {
+  padding-top: 25px
+}
 
 .form {
   display: flex
   flex-direction: column
-  gap: 16px
+  max-width: 400px
+  width: 100%
+}
+
+.input {
+  margin: 10px 0 15px
+}
+
+.submitButton {
+  margin-top: 10px
 }
 </style>
