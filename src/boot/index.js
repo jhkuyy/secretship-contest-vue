@@ -4,8 +4,8 @@ function initUser({ useUser }) {
   return userStore.initAuthorization()
 }
 
-export default function boot({ router, useUser }) {
+export default function boot({ useUser }) {
   return Promise.all([
-    initUser({ router, useUser }),
+    initUser({ useUser }),
   ])
 }

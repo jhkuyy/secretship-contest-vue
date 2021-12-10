@@ -8,9 +8,9 @@ import './styles/base.styl'
 import 'virtual:svg-icons-register'
 
 (async () => {
-  const { app, router } = createApp()
+  const { app } = createApp()
 
-  await boot({ router, useUser })
+  await boot({ useUser })
 
   app.mount('#app')
 })()
