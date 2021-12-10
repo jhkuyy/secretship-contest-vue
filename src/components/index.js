@@ -1,3 +1,4 @@
+export { default as AppBalance } from './AppBalance.vue'
 export { default as AuthWidget } from './AuthWidget.vue'
 export { default as Avatar } from './Avatar.vue'
 export { default as Blockquote } from './Blockquote.vue'

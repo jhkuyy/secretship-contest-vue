@@ -80,13 +80,21 @@ page:
         balance: Balance
         created_at: Created At
 
+  app_users:
+    title: App users
+    empty: The application has no users
+
   app_details:
     tabs:
       wallet: Wallet
       users: Users
       settings: Settings
 
-    transactions_title: Transactions
+    deposit: Deposit
+    withdrawal: Withdrawal
+
+    transactions_title: Transaction history
+    wallet_title: Current application budget
 
     transactions_table:
       column:
