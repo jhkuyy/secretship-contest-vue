@@ -4,10 +4,13 @@
       :class="{
         [$style.body]: true,
         [$style.body_filled]: filled,
-        [$style.body_withValidationError]: validationError
+        [$style.body_withValidationError]: hasExplicitErrorNotification
       }"
     >
-      <slot :hasValidationError="!isValid" />
+      <slot
+        :hasValidationError="!isValid"
+        :hasExplicitErrorNotification="hasExplicitErrorNotification"
+      />
 
       <div
         v-if="label"
@@ -22,13 +25,13 @@
         <div :class="$style.descriptionThumb" />
         <div :class="$style.descriptionTooltip">
           <div :class="$style.descriptionBubbleBackdrop" />
-          {{ description }}{{ description }}{{ description }}{{ description }}
+          {{ description }}
         </div>
       </div>
     </div>
 
     <div
-      v-if="hintText || validationError"
+      v-if="hintText || hasExplicitErrorNotification"
       :class="$style.messages"
     >
       <transition
@@ -38,11 +41,11 @@
         :enterActiveClass="$style.fadeTransition_active"
         :leaveActiveClass="$style.fadeTransition_active"
       >
-        <div v-if="hintText && !validationError">
+        <div v-if="hintText && !hasExplicitErrorNotification">
           {{ hintText }}
         </div>
         <div
-          v-else-if="validationError"
+          v-else-if="hasExplicitErrorNotification"
           :class="$style.errorMessage"
         >
           {{ validationError }}
@@ -55,7 +58,7 @@
 <script>
 import { defineComponent, toRefs } from 'vue'
 
-import { useValidation } from '../composables'
+import { useValidation, useForm } from '../composables'
 
 export default defineComponent({
   props: {
@@ -70,11 +73,18 @@ export default defineComponent({
   setup(props) {
     const { controlValue, controlValueRules } = toRefs(props)
     const { isValid, validationError } = useValidation(controlValue, controlValueRules)
+    useForm(isValid)
 
     return {
       isValid,
       validationError,
     }
+  },
+
+  computed: {
+    hasExplicitErrorNotification() {
+      return this.filled && !this.isValid
+    },
   },
 })
 </script>
