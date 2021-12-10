@@ -8,15 +8,8 @@
   </p>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
 import { useI18n } from 'vue-i18n'
 
-export default defineComponent({
-  setup() {
-    const { t } = useI18n()
-
-    return { t }
-  },
-})
+const { t } = useI18n()
 </script>
