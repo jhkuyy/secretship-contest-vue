@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.wrapper">
-    <div style="display:flex">
+    <div class="d-flex">
       <div :class="$style.colorTest1" />
       <div :class="$style.colorTest2" />
     </div>

@@ -15,7 +15,7 @@ export default defineComponent({
 
   computed: {
     text() {
-      return this.value.toLocaleString('en', { style: 'currency', currency: 'EUR' })
+      return this.value.toLocaleString('en', { style: 'currency', currency: 'USD' })
     },
   },
 })

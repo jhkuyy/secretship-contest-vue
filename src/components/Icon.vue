@@ -43,7 +43,7 @@ export default defineComponent({
 
 <style lang="stylus" module>
 .root {
-  width v-bind("size + 'px'")
-  height v-bind("size + 'px'")
+  width: v-bind("size + 'px'")
+  height: v-bind("size + 'px'")
 }
 </style>

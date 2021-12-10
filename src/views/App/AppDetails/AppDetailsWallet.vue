@@ -1,9 +1,28 @@
 <template>
-  <h1>App wallet</h1>
+  <h4 class="my-3">
+    {{ t('page.app_details.wallet_title') }}
+  </h4>
 
-  <h2 class="mb-3">
+  <div class="d-flex align-items-center my-3">
+    <AppBalance
+      class="me-auto"
+      :balance="balance"
+    />
+
+    <Button
+      class="me-3"
+      @click="onDeposit"
+    >
+      {{ t('page.app_details.deposit') }}
+    </Button>
+    <Button @click="onWithdrawal">
+      {{ t('page.app_details.withdrawal') }}
+    </Button>
+  </div>
+
+  <h4 class="mt-5 mb-3">
     {{ t('page.app_details.transactions_title') }}
-  </h2>
+  </h4>
 
   <Table
     :columns="columns"
@@ -22,12 +41,20 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { CurrencyChip, DateChip, Table } from '../../../components'
+import {
+  AppBalance,
+  Button,
+  CurrencyChip,
+  DateChip,
+  Table,
+} from '../../../components'
 
 export default defineComponent({
   components: {
+    AppBalance,
+    Button,
     CurrencyChip,
     DateChip,
     Table,
@@ -35,6 +62,10 @@ export default defineComponent({
 
   setup() {
     const { t } = useI18n()
+    const balance = ref(300)
+
+    const onDeposit = () => { balance.value += Math.round(Math.random() + 5) }
+    const onWithdrawal = () => { balance.value -= Math.round(Math.random() + 5) }
 
     const columns = [
       { id: 'date', name: t('page.app_details.transactions_table.column.date') },
@@ -75,7 +106,14 @@ export default defineComponent({
       },
     ]
 
-    return { columns, items, t }
+    return {
+      balance,
+      onDeposit,
+      onWithdrawal,
+      columns,
+      items,
+      t,
+    }
   },
 })
 </script>

@@ -8,7 +8,7 @@
       </template>
 
       <UserChipDropdownContent
-        :menu-items="menuItems"
+        :menuItems="menuItems"
         :user="user"
       />
     </Dropdown>

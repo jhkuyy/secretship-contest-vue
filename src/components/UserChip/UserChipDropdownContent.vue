@@ -70,8 +70,7 @@ export default defineComponent({
 .header {
   display: flex
   align-items: center
-  // TODO: move color to vars
-  border-bottom: 1px solid #e5e5e5
+  border-bottom: 1px solid alpha($colors.black, 0.07)
   line-height: 16px
   padding-bottom: 7.5px
   margin-bottom 7.5px
@@ -81,6 +80,7 @@ export default defineComponent({
 
 .item {
   padding: 6px 15px
+  width: 100%
 }
 
 .avatar {

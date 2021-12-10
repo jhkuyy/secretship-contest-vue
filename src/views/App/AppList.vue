@@ -53,15 +53,29 @@ export default defineComponent({
     const { t } = useI18n()
 
     const columns = [
-      { id: 'link', name: t('page.app_list.apps_table.column.name'), sortable: true },
-      { id: 'balance', name: t('page.app_list.apps_table.column.balance'), sortable: false },
-      { id: 'createdAt', name: t('page.app_list.apps_table.column.created_at'), sortable: true },
+      {
+        id: 'link',
+        name: t('page.app_list.apps_table.column.name'),
+        sortable: true,
+        sort: (a, b) => a.link.name.localeCompare(b.link.name),
+      },
+      {
+        id: 'balance',
+        name: t('page.app_list.apps_table.column.balance'),
+        sortable: false,
+      },
+      {
+        id: 'createdAt',
+        name: t('page.app_list.apps_table.column.created_at'),
+        sortable: true,
+        sort: (a, b) => a > b,
+      },
     ]
 
     const items = [
-      { link: { name: 'name1', route: { name: Route.APP_DETAILS_WALLET, params: { id: 1 } } }, balance: 100, createdAt: new Date().getTime() },
+      { link: { name: 'name1', route: { name: Route.APP_DETAILS_WALLET, params: { id: 1 } } }, balance: 100, createdAt: new Date().setHours(7) },
       { link: { name: 'name2', route: { name: Route.APP_DETAILS_WALLET, params: { id: 1 } } }, balance: 200, createdAt: new Date().getTime() },
-      { link: { name: 'name3', route: { name: Route.APP_DETAILS_WALLET, params: { id: 1 } } }, balance: 300, createdAt: new Date().getTime() },
+      { link: { name: 'name3', route: { name: Route.APP_DETAILS_WALLET, params: { id: 1 } } }, balance: 300, createdAt: new Date().setHours(5) },
     ]
 
     return {

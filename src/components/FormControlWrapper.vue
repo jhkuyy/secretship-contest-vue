@@ -242,7 +242,7 @@ $label-downscale-multiplier = 0.93
   position: absolute
   left: 0
   right: 0
-  top: 0;
+  top: 0
   bottom: 0
   border-radius: 8px
   background-color: $colors.gray900

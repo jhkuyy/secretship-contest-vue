@@ -48,6 +48,29 @@
         Aliquid corporis dicta ea <strong>eius eveniet itaque</strong>
         rem sapiente veniam voluptas voluptatem.
       </p>
+
+      <ul>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Maxime, sunt! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Accusamus aliquid excepturi minus molestias. Ea fuga nostrum quaerat.
+          A architecto asperiores beatae corporis culpa cupiditate deleniti eius error esse
+          et hic illo libero molestias numquam odio optio porro quasi qui quia quibusdam,
+          quis quo quos rem tempora ut, veniam vitae.
+          Autem dolore dolorem ea ipsam itaque numquam omnis, quas? Adipisci?
+        </li>
+        <li>
+          Lorem ipsum <strong>dolor sit amet</strong>, consectetur adipisicing elit.
+          Blanditiis doloremque expedita ipsam ipsum nulla
+          quam sapiente similique vel veniam voluptatibus!
+        </li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, rerum.</li>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Ad asperiores excepturi in laborum natus neque
+          odio officiis quaerat quam tempora.
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -63,6 +86,6 @@ import { Blockquote } from '../components'
 
 .content {
   max-width: 800px
-  margin 0 auto
+  margin: 0 auto
 }
 </style>
