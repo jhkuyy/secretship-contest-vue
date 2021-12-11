@@ -9,4 +9,5 @@ export default {
   PROFILE_EDIT: 'route:profile-edit',
   NOT_FOUND: 'route:not-found',
   HELP: 'route:help',
+  UI_KIT: 'route:ui-kit',
 }
