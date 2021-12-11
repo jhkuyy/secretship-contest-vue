@@ -5,6 +5,9 @@
       <div :class="$style.colorTest2" />
     </div>
 
+    <Button @click="sm = true">
+      zela
+    </Button>
     <div class="d-flex gap-2">
       <Checkbox
         v-model="cbg"
@@ -62,20 +65,32 @@
       description="Target all channels that publish their posts in languages listed here."
     />
   </div>
+
+  <AppDeleteModal
+    v-if="sm"
+    @close="sm = false"
+  />
 </template>
 
 <script>
 import { defineComponent } from 'vue'
 
 import {
-  FormTextInput, FormMultiselect, Checkbox,
+  FormTextInput,
+  FormMultiselect,
+  Checkbox,
+  Button,
 } from '../components'
+
+import { AppDeleteModal } from './modals'
 
 export default defineComponent({
   components: {
+    Button,
     FormTextInput,
     FormMultiselect,
     Checkbox,
+    AppDeleteModal,
   },
 
   data: () => ({
@@ -87,6 +102,7 @@ export default defineComponent({
     rules1: [(e) => (e !== 'a' ? undefined : 'Should no be "a"!')],
     cbg: [],
     rv: 'rv2',
+    sm: false,
   }),
 })
 </script>
