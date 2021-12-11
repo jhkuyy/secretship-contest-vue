@@ -6,9 +6,6 @@ export default [
     name: Route.WELCOME,
     path: '/',
     component: () => import('../views/WelcomeScreen.vue'),
-    meta: {
-      guards: [RouteGuard.NO_AUTH],
-    },
   },
   {
     path: '/',
