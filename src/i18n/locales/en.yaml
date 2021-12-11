@@ -127,8 +127,6 @@ page:
         address: From / To
         amount: Amount
 
-
-
 user_chip:
   menu:
     profile_edit: Edit Account Info
@@ -138,3 +136,6 @@ user_chip:
 error_fetched:
   text: Error loading
   repeat: Reload
+
+table:
+  not_items_found: No items found

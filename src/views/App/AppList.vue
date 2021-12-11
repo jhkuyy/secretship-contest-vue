@@ -20,7 +20,6 @@
           <div class="col-md-4 mb-3">
             <Button
               block
-              class="d-block"
               :to="{ name: Route.APP_ADD }"
             >
               {{ t('page.app_list.button_add') }}

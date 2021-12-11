@@ -16,9 +16,9 @@
             :balance="balance"
           />
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 d-flex">
           <Button
-            class="me-3"
+            class="me-3 ms-auto"
             @click="onDeposit"
           >
             {{ t('page.app_details.deposit') }}

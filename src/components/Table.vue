@@ -1,51 +1,62 @@
 <template>
-  <table :class="$style.root">
-    <thead>
-      <tr>
-        <th
-          v-for="item in columns"
-          :key="item.id"
-          :class="[
-            $style.th,
-            item.sortable && $style.sortable,
-            item.id === sortedColumn?.id && $style.sorted,
-            item.id === sortedColumn?.id && $style[sortDirection]
-          ]"
-          @click="onSort(item)"
-        >
-          {{ item.name }}
+  <div :class="$style.wrapper">
+    <table :class="$style.root">
+      <thead>
+        <tr>
+          <th
+            v-for="item in columns"
+            :key="item.id"
+            :class="[
+              $style.th,
+              item.sortable && $style.sortable,
+              item.id === sortedColumn?.id && $style.sorted,
+              item.id === sortedColumn?.id && $style[sortDirection]
+            ]"
+            @click="onSort(item)"
+          >
+            {{ item.name }}
 
-          <span
-            v-if="item.sortable"
-            :class="$style.sort"
-          />
-        </th>
-      </tr>
-    </thead>
+            <span
+              v-if="item.sortable"
+              :class="$style.sort"
+            />
+          </th>
+        </tr>
+      </thead>
 
-    <tr
-      v-for="item in sortedItems"
-      :key="item.key"
-      :class="$style.tr"
-    >
-      <td
-        v-for="column in columns"
-        :key="column.id"
-        :class="$style.td"
+      <tr
+        v-for="item in sortedItems"
+        :key="item.key"
+        :class="$style.tr"
       >
-        <slot
-          :name="column.id"
-          :value="item[column.id]"
+        <td
+          v-for="column in columns"
+          :key="column.id"
+          :class="$style.td"
         >
-          {{ item[column.id] }}
-        </slot>
-      </td>
-    </tr>
-  </table>
+          <slot
+            :name="column.id"
+            :value="item[column.id]"
+          >
+            {{ item[column.id] }}
+          </slot>
+        </td>
+      </tr>
+
+      <tr v-if="items.length > 0 && items.length !== filteredItems.length">
+        <td :colspan="columns.length">
+          <div :class="$style.notFound">
+            {{ t('table.not_items_found') }}
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const SortDirection = Object.freeze({
   ASC: 'asc',
@@ -66,6 +77,12 @@ export default defineComponent({
       type: Function,
       default: null,
     },
+  },
+
+  setup() {
+    const { t } = useI18n()
+
+    return { t }
   },
 
   data: () => ({
@@ -115,9 +132,13 @@ export default defineComponent({
 </script>
 
 <style lang="stylus" module>
+.wrapper {
+  overflow-x: auto
+}
+
 .root {
   width: 100%
-  table-layout: fixed
+  max-width: 100%
 }
 
 .th,
@@ -207,5 +228,12 @@ export default defineComponent({
       }
     }
   }
+}
+
+.notFound {
+  padding 24px 0
+  font-size 15px
+  text-align: center
+  color: $colors.gray700
 }
 </style>

@@ -4,9 +4,16 @@
       <h1>Telegram Ad Platform Explained</h1>
 
       <Blockquote>
+        <template #header>
+          Header blockquote
+        </template>
+
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Eligendi et eum in <strong>molestiae nisi</strong> porro quaerat
-        <a href="#"><strong>quibusdam</strong></a>  quos vero!
+        Aliquam cupiditate eos id? Dolorum eius, est ipsa libero pariatur vitae!
+        Accusantium ad, animi aperiam commodi cupiditate distinctio enim exercitationem
+        explicabo fugit in ipsam iusto laudantium, magni maiores molestias nam odio
+        omnis quaerat quibusdam quis
+        reprehenderit sapiente soluta suscipit vitae voluptas voluptates.
       </Blockquote>
 
       <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
