@@ -2,13 +2,8 @@
 
 # TODO
 
-
-* Button type="text"
 * add <Header level="1" />
 * add anchor prop to <Header />
-* add modals functionality
-* title to <Blockquote>
-
 
 * move UserChip & AuthWidget to views
 * delete comments
