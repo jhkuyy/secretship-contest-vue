@@ -39,15 +39,5 @@ module.exports = {
       path: 'src/{{type}}/{{pascalCase name}}.vue',
       template: componentTemplate,
     },
-    {
-      type: 'modify',
-      path: 'src/{{type}}/index.js',
-      pattern: /$/,
-      template: "export { default as {{pascalCase name}} } from './{{pascalCase name}}.vue'",
-      transform: (v) => `${v
-        .split('\n')
-        .sort((a, b) => a.localeCompare(b))
-        .join('\n')}\n`,
-    },
   ],
 }
