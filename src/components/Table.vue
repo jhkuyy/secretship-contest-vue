@@ -41,11 +41,20 @@
         </slot>
       </td>
     </tr>
+
+    <tr v-if="items.length > 0 && items.length !== filteredItems.length">
+      <td :colspan="columns.length">
+        <div :class="$style.notFound">
+          {{ t('table.not_items_found') }}
+        </div>
+      </td>
+    </tr>
   </table>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const SortDirection = Object.freeze({
   ASC: 'asc',
@@ -66,6 +75,12 @@ export default defineComponent({
       type: Function,
       default: null,
     },
+  },
+
+  setup() {
+    const { t } = useI18n()
+
+    return { t }
   },
 
   data: () => ({
@@ -207,5 +222,12 @@ export default defineComponent({
       }
     }
   }
+}
+
+.notFound {
+  padding 24px 0
+  font-size 15px
+  text-align: center
+  color: $colors.gray700
 }
 </style>
