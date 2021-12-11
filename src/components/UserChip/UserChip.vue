@@ -82,6 +82,6 @@ export default defineComponent({
 }
 
 .dropdown {
-  margin-right: 20px
+  margin-right: 18px
 }
 </style>
