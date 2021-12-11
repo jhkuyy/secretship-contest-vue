@@ -127,6 +127,16 @@ page:
         address: From / To
         amount: Amount
 
+  profile_edit:
+    title: Profile edit
+    form:
+      save_button: Save info
+      rule: It field is required
+      firstname:
+        label: Name
+      lastname:
+        label: Lastname
+
 user_chip:
   menu:
     profile_edit: Edit Account Info

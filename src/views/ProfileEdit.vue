@@ -10,14 +10,14 @@
           v-model="firstName"
           autocomplete="given-name"
           :class="$style.input"
-          label="Имя"
+          :label="t('page.profile_edit.form.firstname.label')"
           :rules="userNameRules"
         />
         <FormTextInput
           v-model="lastName"
           autocomplete="family-name"
           :class="$style.input"
-          label="Фамилия"
+          :label="t('page.profile_edit.form.lastname.label')"
           :rules="userNameRules"
         />
 
@@ -25,7 +25,7 @@
           :class="$style.submitButton"
           :disabled="!isAllFieldsValid"
         >
-          Save
+          {{ t('page.profile_edit.form.save_button') }}
         </Button>
       </template>
     </Form>
@@ -35,7 +35,7 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import { useRouter } from 'vue-router'
-
+import { useI18n } from 'vue-i18n'
 import {
   Form,
   FormTextInput,
@@ -45,11 +45,6 @@ import {
 import { Route } from '../lib'
 import { useUser } from '../store'
 
-const userNameRules = [
-  (e) => (!e ? 'Должно быть заполнено' : undefined),
-]
-
-// TODO: use i18n
 export default defineComponent({
   components: {
     Form,
@@ -61,11 +56,17 @@ export default defineComponent({
   setup() {
     const { user, edit } = useUser()
     const { push } = useRouter()
+    const { t } = useI18n()
 
     const firstName = ref(user.firstName)
     const lastName = ref(user.lastName)
 
+    const userNameRules = [
+      (e) => (!e ? t('page.profile_edit.form.rule') : undefined),
+    ]
+
     return {
+      t,
       firstName,
       lastName,
       userNameRules,
@@ -74,7 +75,7 @@ export default defineComponent({
           firstName: firstName.value,
           lastName: lastName.value,
         })
-        push(Route.APP_LIST)
+        push({ name: Route.APP_LIST })
       },
     }
   },
