@@ -5,7 +5,7 @@
       <div :class="$style.colorTest2" />
     </div>
 
-    <div>
+    <div class="d-flex gap-2">
       <Checkbox
         v-model="cbg"
         value="v1"
@@ -24,20 +24,6 @@
       >
         Lorem ipsum dolor sit amet.
       </Checkbox>
-    </div>
-    <div>
-      <Radio
-        v-model="rv"
-        value="rv1"
-      />
-      <Radio
-        v-model="rv"
-        value="rv2"
-      />
-      <Radio
-        v-model="rv"
-        value="rv3"
-      />
     </div>
 
     <FormMultiselect
@@ -82,7 +68,7 @@
 import { defineComponent } from 'vue'
 
 import {
-  FormTextInput, FormMultiselect, Checkbox, Radio,
+  FormTextInput, FormMultiselect, Checkbox,
 } from '../components'
 
 export default defineComponent({
@@ -90,7 +76,6 @@ export default defineComponent({
     FormTextInput,
     FormMultiselect,
     Checkbox,
-    Radio,
   },
 
   data: () => ({
