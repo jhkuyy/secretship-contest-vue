@@ -110,6 +110,7 @@ page:
     empty: The application settings
 
   app_details:
+    delete_button: Delete app
     tabs:
       wallet: Wallet
       users: Users

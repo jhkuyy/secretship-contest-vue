@@ -1,10 +1,21 @@
 <template>
-  <div class="container mt-3">
-    <Tabs
-      :active="activeTab"
-      :items="tabs"
-      @change="onTabChange"
-    />
+  <div class="container mt-4">
+    <div class="d-flex">
+      <Tabs
+        :active="activeTab"
+        :items="tabs"
+        @change="onTabChange"
+      />
+
+      <a
+        v-if="button"
+        :class="$style.button"
+        @click="button.action"
+      >
+        {{ button.text }}
+      </a>
+    </div>
+
     <router-view />
   </div>
 </template>
@@ -36,7 +47,38 @@ export default defineComponent({
 
     const onTabChange = (tab) => router.push({ name: tab.route })
 
-    return { activeTab, tabs, onTabChange }
+    const button = computed(() => {
+      if (route.name === Route.APP_DETAILS_WALLET) {
+        return {
+          text: t('page.app_details.delete_button'),
+          action: () => {},
+        }
+      }
+
+      return null
+    })
+
+    return {
+      activeTab,
+      button,
+      tabs,
+      onTabChange,
+    }
   },
 })
 </script>
+
+<style lang="stylus" module>
+.button {
+  font-weight: 500
+  cursor: pointer
+  display: block
+  margin-left: auto
+  line-height: 30px
+
+  &:hover,
+  &:focus {
+    text-decoration: underline
+  }
+}
+</style>
