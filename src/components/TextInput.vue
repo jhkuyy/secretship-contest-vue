@@ -123,25 +123,25 @@ $size = 32px
 
   &::after,
   &::before {
-    display: inline-block;
-    position: absolute;
-    background: #c0c0c0;
-    left: 50%;
-    top: 50%;
-    content: '';
-    width: 16px;
-    height: 2px;
-    margin: -1px 0 0 -8px;
-    border-radius: 1px;
-    transition: background-color .2s ease;
+    display: inline-block
+    position: absolute
+    background: #c0c0c0
+    left: 50%
+    top: 50%
+    content: ''
+    width: 16px
+    height: 2px
+    margin: -1px 0 0 -8px
+    border-radius: 1px
+    transition: background-color .2s ease
   }
 
   &::after {
-    transform: rotateZ(-45deg) scaleY(.95);
+    transform: rotateZ(-45deg) scaleY(.95)
   }
 
   &::before {
-    transform: rotateZ(45deg) scaleY(.95);
+    transform: rotateZ(45deg) scaleY(.95)
   }
 
   &:hover {
