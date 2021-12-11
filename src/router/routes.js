@@ -1,4 +1,4 @@
-import { Route } from '../lib'
+import { Route, RouteMeta } from '../lib'
 import RouteGuard from './RouteGuard'
 
 export default [
@@ -20,6 +20,7 @@ export default [
         component: () => import('../views/App/AppList.vue'),
         meta: {
           guards: [RouteGuard.AUTH],
+          [RouteMeta.HIDE_HEADER_BORDER]: true,
         },
       },
       {

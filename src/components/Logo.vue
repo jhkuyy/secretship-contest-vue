@@ -10,7 +10,9 @@
       name="logo"
     />
 
-    Telegram Ads
+    <div :class="$style.text">
+      Telegram Ads
+    </div>
   </router-link>
 </template>
 
@@ -39,7 +41,7 @@ export default defineComponent({
 
 <style lang="stylus" module>
 .root {
-  color: $colors.primary
+  color: darken($colors.primary, 15%)
   font-size: 16px
   font-weight: 600
   line-height: 20px
@@ -53,5 +55,9 @@ export default defineComponent({
 
 .icon {
   margin-right: 8px
+}
+
+.text {
+  margin-top: 2px
 }
 </style>

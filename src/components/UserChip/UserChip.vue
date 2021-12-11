@@ -77,7 +77,8 @@ export default defineComponent({
   white-space: nowrap
   font-size 14px
   font-weight: 500
-  color: darken($colors.primary, 10%)
+  color: darken($colors.primary, 15%)
+  -webkit-font-smoothing: antialiased
 }
 
 .dropdown {

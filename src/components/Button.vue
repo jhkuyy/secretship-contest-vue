@@ -57,8 +57,8 @@ export default defineComponent({
   border-radius: 6px
   user-select: none
   white-space: nowrap
-  vertical-align: middle
   text-align: center
+  display: inline-block
 
   &[disabled] {
     pointer-events: none
