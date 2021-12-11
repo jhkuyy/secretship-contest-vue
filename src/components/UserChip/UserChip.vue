@@ -53,9 +53,9 @@ export default defineComponent({
         name: t('user_chip.menu.help'),
       },
       {
-        action: () => {
+        action: async () => {
+          await router.push({ name: Route.WELCOME })
           store.logout()
-          router.push({ name: Route.WELCOME })
         },
         icon: 'logout',
         name: t('user_chip.menu.logout'),
