@@ -3,13 +3,20 @@ import { Route } from '../lib'
 async function initUser({ router, useUser }) {
   const userStore = useUser()
 
-  await userStore.initAuthorization()
+  await Promise.all([
+    userStore.initAuthorization(),
+    router.isReady(),
+  ])
 
-  if (userStore.isAuthorized) {
-    await router.push({ name: Route.APP_LIST })
-  } else {
-    await router.push({ name: Route.WELCOME })
+  if (userStore.isAuthorized && router.currentRoute.value.path === '/') {
+    return router.push({ name: Route.APP_LIST })
   }
+
+  if (!userStore.isAuthorized) {
+    return router.push({ name: Route.WELCOME })
+  }
+
+  return undefined
 }
 
 export default function boot({ router, useUser }) {
