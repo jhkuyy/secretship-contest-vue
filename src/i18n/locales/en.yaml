@@ -75,6 +75,7 @@ page:
     button_add: Add application
 
     apps_table:
+      search_placeholder: Search app by name
       column:
         name: Name
         balance: Balance

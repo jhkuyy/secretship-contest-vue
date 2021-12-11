@@ -53,7 +53,10 @@
 
 <script>
 import {
-  computed, defineComponent, onMounted, ref,
+  computed,
+  defineComponent,
+  onMounted,
+  ref,
 } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'

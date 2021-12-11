@@ -6,12 +6,23 @@
       @reload="fetchApps"
     >
       <template v-if="items.length > 0">
-        <div class="d-flex mb-3">
-          <div class="flex-grow-1">
-            <input type="text">
+        <div class="row">
+          <div class="col-md-8 mb-3">
+            <div :class="$style.search">
+              <TextInput
+                v-model="searchString"
+                icon="search"
+                :placeholder="t('page.app_list.apps_table.search_placeholder')"
+              />
+            </div>
           </div>
-          <div class="ms-3">
-            <Button :to="{ name: Route.APP_ADD }">
+
+          <div class="col-md-4 mb-3">
+            <Button
+              block
+              class="d-block"
+              :to="{ name: Route.APP_ADD }"
+            >
               {{ t('page.app_list.button_add') }}
             </Button>
           </div>
@@ -20,6 +31,7 @@
         <Table
           :columns="columns"
           :items="items"
+          :searchFunction="searchFunction"
         >
           <template #link="{ value }">
             <router-link :to="value.route">
@@ -55,6 +67,7 @@ import {
   DateChip,
   LoadingWrapper,
   Table,
+  TextInput,
 } from '../../components'
 import { Route } from '../../lib'
 import { useRequest } from '../../composables'
@@ -69,11 +82,13 @@ export default defineComponent({
     CurrencyChip,
     DateChip,
     Table,
+    TextInput,
   },
 
   setup() {
     const { t } = useI18n()
     const apps = ref([])
+    const searchString = ref('')
 
     const [fetchApps, requestState] = useRequest(async () => {
       apps.value = await apiClient.fetchApps()
@@ -108,6 +123,8 @@ export default defineComponent({
       createdAt: app.createdAt,
     })))
 
+    const searchFunction = (item) => item.link.name.toLowerCase().includes(searchString.value)
+
     onMounted(fetchApps)
 
     return {
@@ -118,7 +135,19 @@ export default defineComponent({
       RequestState,
       requestState,
       fetchApps,
+      searchString,
+      searchFunction,
     }
   },
 })
 </script>
+
+<style lang="stylus" module>
+.search {
+  width: 100%
+
+  @media screen and (min-width: 768px) {
+    max-width: 395px
+  }
+}
+</style>

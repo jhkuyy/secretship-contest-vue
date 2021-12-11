@@ -62,6 +62,10 @@ export default defineComponent({
       type: Array,
       required: true,
     },
+    searchFunction: {
+      type: Function,
+      default: null,
+    },
   },
 
   data: () => ({
@@ -70,18 +74,22 @@ export default defineComponent({
   }),
 
   computed: {
+    filteredItems() {
+      return this.searchFunction
+        ? this.items.filter(this.searchFunction)
+        : this.items
+    },
+
     sortedItems() {
       if (!this.sortedColumn) {
-        return this.items
+        return this.filteredItems
       }
 
-      const result = [...this.items].sort(this.sortedColumn.sort)
+      const result = [...this.filteredItems].sort(this.sortedColumn.sort)
 
-      if (this.sortDirection === SortDirection.DESC) {
-        return result.reverse()
-      }
-
-      return result
+      return this.sortDirection === SortDirection.DESC
+        ? result.reverse()
+        : result
     },
   },
 
