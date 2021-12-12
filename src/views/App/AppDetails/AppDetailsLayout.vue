@@ -16,19 +16,30 @@
       </a>
     </div>
 
+    <AppDeleteModal
+      v-if="showModal"
+      :text="t('page.app_details.modal_delete_confirm')"
+      @confirm="onApplicationDelete"
+      @close="closeModal"
+      @cancel="closeModal"
+    />
+
     <router-view />
   </div>
 </template>
 
 <script>
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { Tabs } from '../../../components'
+import { AppDeleteModal } from '../../modals'
 import { Route } from '../../../lib'
+import { apiClient } from '../../../core/services'
 
 export default defineComponent({
   components: {
+    AppDeleteModal,
     Tabs,
   },
 
@@ -36,6 +47,9 @@ export default defineComponent({
     const { t } = useI18n()
     const route = useRoute()
     const router = useRouter()
+    const showModal = ref(false)
+
+    const closeModal = () => { showModal.value = false }
 
     const tabs = computed(() => ([
       { name: t('page.app_details.tabs.wallet'), route: Route.APP_DETAILS_WALLET },
@@ -51,18 +65,28 @@ export default defineComponent({
       if (route.name === Route.APP_DETAILS_WALLET) {
         return {
           text: t('page.app_details.delete_button'),
-          action: () => {},
+          action: () => { showModal.value = true },
         }
       }
 
       return null
     })
 
+    const onApplicationDelete = async () => {
+      await apiClient.removeApp(Number(route.params.id))
+      await router.push({ name: Route.APP_LIST })
+      closeModal()
+    }
+
     return {
+      t,
       activeTab,
       button,
       tabs,
       onTabChange,
+      showModal,
+      closeModal,
+      onApplicationDelete,
     }
   },
 })
