@@ -1,31 +1,34 @@
 <template>
-  <div :class="[$style.header, 'container']">
-    <Logo :class="$style.logo" />
+  <div class="container">
+    <div :class="[$style.header, needBorder && $style.border]">
+      <Logo :class="$style.logo" />
 
-    <UserChip />
+      <UserChip />
+    </div>
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { UserChip, Logo } from '../../components'
+import { RouteMeta } from '../../lib'
 
-export default defineComponent({
-  components: {
-    Logo,
-    UserChip,
-  },
-})
+const route = useRoute()
+
+const needBorder = computed(() => !route.meta[RouteMeta.HIDE_HEADER_BORDER])
 </script>
 
 <style lang="stylus" module>
 .header {
-  min-height: 64px
+  min-height: 63px
   display: flex
   align-items: center
-  padding: 15px
-  // TODO: move color to variables
-  border-bottom: 1px solid #e6e6e6;
+  padding: 15px 0 14px
+
+  &.border {
+    border-bottom: 1px solid $colors.gray300
+  }
 }
 
 .logo {

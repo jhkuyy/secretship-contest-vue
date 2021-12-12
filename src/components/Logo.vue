@@ -1,7 +1,7 @@
 <template>
   <router-link
     :class="$style.root"
-    to="/"
+    :to="{ name: route }"
   >
     <Icon
       :class="$style.icon"
@@ -10,24 +10,38 @@
       name="logo"
     />
 
-    Telegram Ads
+    <div :class="$style.text">
+      Telegram Ads
+    </div>
   </router-link>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
+import { storeToRefs } from 'pinia'
+import { Route } from '../lib'
+import { useUser } from '../stores'
 import Icon from './Icon.vue'
 
 export default defineComponent({
   components: {
     Icon,
   },
+
+  setup() {
+    const user = useUser()
+    const { isAuthorized } = storeToRefs(user)
+
+    const route = computed(() => (isAuthorized ? Route.APP_LIST : Route.WELCOME))
+
+    return { route }
+  },
 })
 </script>
 
 <style lang="stylus" module>
 .root {
-  color: $colors.primary
+  color: darken($colors.primary, 15%)
   font-size: 16px
   font-weight: 600
   line-height: 20px
@@ -41,5 +55,9 @@ export default defineComponent({
 
 .icon {
   margin-right: 8px
+}
+
+.text {
+  margin-top: 2px
 }
 </style>

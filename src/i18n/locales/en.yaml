@@ -71,8 +71,88 @@ page:
       t3: try out the interface
       t4: this guide
 
+  app_list:
+    button_add: Add application
+
+    apps_table:
+      search_placeholder: Search app by name
+      column:
+        name: Name
+        balance: Balance
+        created_at: Created At
+
+  app_add:
+    form:
+      label: Add app
+      name:
+        placeholder: App name
+        hintText: Should be at least 4 symbols long
+      link:
+        placeholder: App link
+      categories:
+        placeholder: App categories
+        not_found: Categories not found
+      button: Save
+      rule:
+        empty: Can not be empty!
+        url: Not valid url!
+
+    apps_empty:
+      title: You have no ads yet…
+      subtitle: Create your first ad by clicking the button below.
+
+  app_users:
+    title: App users
+    empty: The application has no users
+
+  app_settings:
+    title: App settings
+    empty: The application settings
+
+  app_details:
+    delete_button: Delete app
+    tabs:
+      wallet: Wallet
+      users: Users
+      settings: Settings
+
+    modal_delete_confirm: Do you really want to uninstall the application?
+
+    deposit: Deposit
+    withdrawal: Withdrawal
+
+    transactions_title: Transaction history
+    wallet_title: Current application budget
+
+    transactions_table:
+      column:
+        date: Date
+        address: From / To
+        amount: Amount
+
+  profile_edit:
+    title: Profile edit
+    form:
+      save_button: Save info
+      rule: It field is required
+      firstname:
+        label: Name
+      lastname:
+        label: Lastname
+
 user_chip:
   menu:
     profile_edit: Edit Account Info
     help: Help
     logout: Logout
+
+error_fetched:
+  text: Error loading
+  repeat: Reload
+
+table:
+  not_items_found: No items found
+
+dialog_modal:
+  yes: Yes
+  no: No

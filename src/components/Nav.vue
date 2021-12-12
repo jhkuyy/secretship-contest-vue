@@ -32,8 +32,8 @@ export default defineComponent({
 }
 
 .item {
-  display flex
-  align-items center
+  display: flex
+  align-items: center
   font-weight: 500
   line-height: 24px
   white-space: nowrap
@@ -43,9 +43,7 @@ export default defineComponent({
   cursor: pointer
 
   &:hover {
-    // TODO: move colors to variables
-    background-color: #f4f4f4;
-    color: #222;
+    background-color: $colors.gray100
   }
 }
 </style>

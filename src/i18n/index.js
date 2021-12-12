@@ -5,7 +5,6 @@ import ru from './locales/ru.yaml'
 
 function createI18n() {
   return _createI18n({
-    legacy: false,
     locale: Locale.EN,
     fallbackLocale: Locale.EN,
     messages: {

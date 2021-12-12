@@ -1,9 +1,9 @@
 import createApp from './app'
 import boot from './boot'
-import { useUser } from './store'
+import { useUser } from './stores'
 
-import './styles/base.styl'
 import './styles/bootstrap.scss'
+import './styles/base.styl'
 // eslint-disable-next-line import/no-unresolved
 import 'virtual:svg-icons-register'
 

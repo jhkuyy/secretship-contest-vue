@@ -1,9 +1,15 @@
 # Конкурс для JavaScript разработчиков
 
 # TODO
-* rename src/store to stores
+
 * add <Header level="1" />
 * add anchor prop to <Header />
-* add <Blockquote />
-* add <TextInput />
-* add modals functionality
+
+* move UserChip & AuthWidget to views
+* delete comments
+* delete logs
+* delete all ; from styles
+* delete /d route
+* add eslint-plugin-comments
+
+* DELETE THIS TODO

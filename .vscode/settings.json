@@ -5,6 +5,7 @@
     "src/i18n/locales"
   ],
   "cSpell.words": [
-    "vite"
+    "vite",
+    "composables"
   ],
 }

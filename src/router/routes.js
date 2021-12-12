@@ -1,4 +1,4 @@
-import { Route } from '../lib'
+import { Route, RouteMeta } from '../lib'
 import RouteGuard from './RouteGuard'
 
 export default [
@@ -6,38 +6,52 @@ export default [
     name: Route.WELCOME,
     path: '/',
     component: () => import('../views/WelcomeScreen.vue'),
-    meta: {
-      guards: [RouteGuard.NO_AUTH],
-    },
   },
   {
     path: '/',
     component: () => import('../views/ApplicationLayout/ApplicationLayout.vue'),
     children: [
       {
+        name: Route.APP_LIST,
         path: 'apps',
-        component: () => import('../views/App/AppLayout.vue'),
+        component: () => import('../views/App/AppList.vue'),
+        meta: {
+          guards: [RouteGuard.AUTH],
+          [RouteMeta.HIDE_HEADER_BORDER]: true,
+        },
+      },
+      {
+        name: Route.APP_ADD,
+        path: 'apps/add',
+        component: () => import('../views/App/AppAdd.vue'),
+        meta: {
+          guards: [RouteGuard.AUTH],
+        },
+      },
+      {
+        path: 'apps/:id',
+        component: () => import('../views/App/AppDetails/AppDetailsLayout.vue'),
         children: [
           {
-            name: Route.APP_LIST,
+            name: Route.APP_DETAILS_WALLET,
             path: '',
-            component: () => import('../views/App/AppList.vue'),
+            component: () => import('../views/App/AppDetails/AppDetailsWallet.vue'),
             meta: {
               guards: [RouteGuard.AUTH],
             },
           },
           {
-            name: Route.APP_ADD,
-            path: 'add',
-            component: () => import('../views/App/AppAdd.vue'),
+            name: Route.APP_DETAILS_USERS,
+            path: 'users',
+            component: () => import('../views/App/AppDetails/AppDetailsUsers.vue'),
             meta: {
               guards: [RouteGuard.AUTH],
             },
           },
           {
-            name: Route.APP_DETAILS,
-            path: 'details/:id',
-            component: () => import('../views/App/AppDetails.vue'),
+            name: Route.APP_DETAILS_SETTINGS,
+            path: 'settings',
+            component: () => import('../views/App/AppDetails/AppDetailsSettings.vue'),
             meta: {
               guards: [RouteGuard.AUTH],
             },
@@ -61,6 +75,15 @@ export default [
         },
       },
     ],
+  },
+  {
+    path: '/d',
+    component: () => import('../views/PlayGround.vue'),
+  },
+  {
+    name: Route.UI_KIT,
+    path: '/ui-kit',
+    component: () => import('../views/UiKit.vue'),
   },
   {
     path: '/:pathMatch(.*)*',

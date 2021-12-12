@@ -1,4 +1,4 @@
-import appStorage from '../AppStorage'
+import appStorage from './AppStorage'
 
 class ApiClient {
   #STORAGE_KEY = 'apps'
@@ -14,6 +14,8 @@ class ApiClient {
 
     const newApp = {
       id: apps.length + 1,
+      createdAt: new Date().getTime(),
+      balance: 0,
       ...app,
     }
 
@@ -61,6 +63,7 @@ class ApiClient {
       this.#STORAGE_KEY,
       [
         ...apps.slice(0, index),
+        editedApp,
         ...apps.slice(index + 1),
       ],
     )

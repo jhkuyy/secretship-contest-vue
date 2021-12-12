@@ -1,7 +1,22 @@
-function initUser({ useUser }) {
+import { Route } from '../lib'
+
+async function initUser({ router, useUser }) {
   const userStore = useUser()
 
-  return userStore.initAuthorization()
+  await Promise.all([
+    userStore.initAuthorization(),
+    router.isReady(),
+  ])
+
+  if (userStore.isAuthorized && router.currentRoute.value.path === '/') {
+    return router.push({ name: Route.APP_LIST })
+  }
+
+  if (!userStore.isAuthorized) {
+    return router.push({ name: Route.WELCOME })
+  }
+
+  return undefined
 }
 
 export default function boot({ router, useUser }) {

@@ -1,4 +1,4 @@
-import { useUser } from '../store'
+import { useUser } from '../stores'
 import { Route } from '../lib'
 import RouteGuard from './RouteGuard'
 
@@ -25,20 +25,6 @@ const authGuard = createGuard(RouteGuard.AUTH, ({ next }) => {
   return next()
 })
 
-const noAuthGuard = createGuard(RouteGuard.NO_AUTH, ({ next }) => {
-  const store = useUser()
-
-  if (store.isAuthorized) {
-    // eslint-disable-next-line no-console
-    console.error('No auth guard failed')
-
-    return next({ name: Route.APP_LIST })
-  }
-
-  return next()
-})
-
 export default [
   authGuard,
-  noAuthGuard,
 ]

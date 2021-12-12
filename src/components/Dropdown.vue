@@ -66,6 +66,7 @@ export default defineComponent({
 <style lang="stylus" module>
 .root {
   position: relative
+  display inline-flex
 }
 
 .trigger {
@@ -83,13 +84,15 @@ export default defineComponent({
   position: absolute
   left: auto
   right: -1px
+  top: 100%
   margin: 4px 0 -2px 0
-  border: 1px solid rgba(0, 0, 0, .06)
-  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+  border: 1px solid alpha($colors.black, 0.07)
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07)
   border-radius: 4px
   overflow: hidden
   min-width: 150px
-  background-color: #fff
+  background-color: $colors.white
   padding: 7px 0
+  z-index: 100
 }
 </style>

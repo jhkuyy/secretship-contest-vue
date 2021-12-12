@@ -2,27 +2,15 @@
   <div :class="$style.root">
     <Dropdown :class="$style.dropdown">
       <template #trigger>
-        <div :class="$style.user">
+        <div :class="[$style.user, 'd-none d-md-block']">
           {{ user.firstName }} {{ user.lastName }}
         </div>
       </template>
 
-      <Nav :items="menuItems">
-        <template #default="{ item }">
-          <span
-            :class="$style.dropdownItem"
-            @click="item.action"
-          >
-            <Icon
-              :class="$style.icon"
-              :name="item.icon"
-              :size="24"
-            />
-
-            {{ item.name }}
-          </span>
-        </template>
-      </Nav>
+      <UserChipDropdownContent
+        :menuItems="menuItems"
+        :user="user"
+      />
     </Dropdown>
 
     <Avatar :url="user.photo" />
@@ -34,26 +22,23 @@ import { computed, defineComponent } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import Avatar from './Avatar.vue'
-import Dropdown from './Dropdown.vue'
-import Icon from './Icon.vue'
-import Nav from './Nav.vue'
-import { useUser } from '../store'
-import { Route } from '../lib'
+import { Route } from '../../lib'
+import { useUser } from '../../stores'
+import Avatar from '../Avatar.vue'
+import Dropdown from '../Dropdown.vue'
+import UserChipDropdownContent from './UserChipDropdownContent.vue'
 
 export default defineComponent({
   components: {
     Avatar,
     Dropdown,
-    Icon,
-    Nav,
+    UserChipDropdownContent,
   },
 
   setup() {
     const store = useUser()
     const router = useRouter()
     const { t } = useI18n()
-
     const { user } = storeToRefs(store)
 
     const menuItems = computed(() => ([
@@ -68,9 +53,9 @@ export default defineComponent({
         name: t('user_chip.menu.help'),
       },
       {
-        action: () => {
+        action: async () => {
+          await router.push({ name: Route.WELCOME })
           store.logout()
-          router.push({ name: Route.WELCOME })
         },
         icon: 'logout',
         name: t('user_chip.menu.logout'),
@@ -89,26 +74,14 @@ export default defineComponent({
 }
 
 .user {
-  display: none
   white-space: nowrap
   font-size 14px
   font-weight: 500
-  color: darken($colors.primary, 10%)
-
-  @media screen and (min-width: 992px) {
-    display: block
-  }
-}
-
-.icon {
-  margin-right: 10px
+  color: darken($colors.primary, 15%)
+  -webkit-font-smoothing: antialiased
 }
 
 .dropdown {
-  margin-right: 20px
-}
-
-.dropdownItem {
-  padding: 6px 15px
+  margin-right: 18px
 }
 </style>

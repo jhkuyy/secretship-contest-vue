@@ -1,9 +1,10 @@
 <template>
   <div :class="['container', $style.root]">
     <img
-      src="../assets/images/ads_intro.svg"
+      src="../assets/images/welcome/ads_intro.svg"
       width="134"
       height="212"
+      alt="intro"
     >
 
     <h1>{{ t('page.welcome.title1') }}</h1>
@@ -36,7 +37,7 @@
 
     <AuthWidget
       size="large"
-      telegram-bot-name="SecretshipContestVueBot"
+      telegramBotName="SecretshipContestVueBot"
       :class="$style.button"
       @auth="onAuth"
     />
@@ -165,7 +166,7 @@ import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 import { AuthWidget } from '../components'
-import { useUser } from '../store'
+import { useUser } from '../stores'
 import { Route } from '../lib'
 
 export default defineComponent({
@@ -212,7 +213,7 @@ export default defineComponent({
   }
 
   strong {
-    font-weight 500
+    font-weight: 500
   }
 
   p {
@@ -222,7 +223,7 @@ export default defineComponent({
 }
 
 .additionalInfo {
-  text-align: start;
+  text-align: start
   margin-top: 70px
 }
 
@@ -234,7 +235,7 @@ export default defineComponent({
 }
 
 .button {
-  width 210px
-  margin 30px auto 12px
+  width: 210px
+  margin: 30px auto 12px
 }
 </style>

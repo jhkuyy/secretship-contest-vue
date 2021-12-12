@@ -27,5 +27,8 @@ module.exports = {
     'no-debugger': errorIfProd,
     semi: ['error', 'never'],
     'import/no-extraneous-dependencies': ['error', { packageDir: './' }],
+
+    'vue/attribute-hyphenation': [errorIfProd, 'never'],
+    'vue/v-on-event-hyphenation': [errorIfProd, 'never'],
   },
 }
