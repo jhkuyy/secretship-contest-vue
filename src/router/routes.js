@@ -77,10 +77,6 @@ export default [
     ],
   },
   {
-    path: '/d',
-    component: () => import('../views/PlayGround.vue'),
-  },
-  {
     name: Route.UI_KIT,
     path: '/ui-kit',
     component: () => import('../views/UiKit.vue'),

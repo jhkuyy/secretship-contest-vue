@@ -17,7 +17,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint .",
-    "lint:i18n": "vue-i18n-extract report --vueFiles './src/?(views|components)/**/*.vue' --languageFiles './src/i18n/locales/*.?(yml|yaml)'"
+    "lint:i18n": "vue-i18n-extract report --vueFiles './src/?(views|components)/**/*.vue' --languageFiles './src/locales/*.?(yml|yaml)'"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",

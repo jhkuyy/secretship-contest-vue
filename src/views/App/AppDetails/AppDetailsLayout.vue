@@ -35,7 +35,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { Tabs } from '../../../components'
 import { AppDeleteModal } from '../../modals'
 import { Route } from '../../../lib'
-import { apiClient } from '../../../core/services'
+import { apiClient } from '../../../services'
 
 export default defineComponent({
   components: {

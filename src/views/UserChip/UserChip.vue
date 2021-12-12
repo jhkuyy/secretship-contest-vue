@@ -22,10 +22,12 @@ import { computed, defineComponent } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+
 import { Route } from '../../lib'
 import { useUser } from '../../stores'
-import Avatar from '../Avatar.vue'
-import Dropdown from '../Dropdown.vue'
+import Avatar from '../../components/Avatar.vue'
+import Dropdown from '../../components/Dropdown.vue'
+
 import UserChipDropdownContent from './UserChipDropdownContent.vue'
 
 export default defineComponent({

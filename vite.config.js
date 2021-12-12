@@ -24,7 +24,7 @@ export default defineConfig({
     vitePluginEslint(),
     vitePluginBabel(),
     vitePluginVueI18n({
-      include: path.resolve(__dirname, './src/i18n/locales/**'),
+      include: path.resolve(__dirname, './src/locales/**'),
     }),
     vitePlugSvgIcons({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/images/sprite')],
