@@ -1,1 +1,0 @@
-import{i as c,o,j as r,k as s,t,q as a,O as n}from"./vendor.0fc79ac1.js";const p={class:"my-3"},_={class:"my-3 text-secondary text-center"},d={setup(l){const{t:e}=c();return(u,i)=>(o(),r(n,null,[s("h4",p,t(a(e)("page.app_users.title")),1),s("p",_,t(a(e)("page.app_users.empty")),1)],64))}};export{d as default};

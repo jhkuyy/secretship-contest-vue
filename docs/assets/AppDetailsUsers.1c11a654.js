@@ -1,0 +1,1 @@
+import{j as o,o as r,i as n,k as s,t,v as a,F as c}from"./vendor.8051fb1e.js";const p={class:"my-3"},_={class:"my-3 text-secondary text-center"},d={setup(l){const{t:e}=o();return(u,i)=>(r(),n(c,null,[s("h4",p,t(a(e)("page.app_users.title")),1),s("p",_,t(a(e)("page.app_users.empty")),1)],64))}};export{d as default};
