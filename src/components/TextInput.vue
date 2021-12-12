@@ -72,7 +72,7 @@ $size = 32px
   padding: 4px
   padding-left: 15px
 
-  &:focus-within {
+  &:focus {
     box-shadow: inset 0 0 0 2px $colors.primary
   }
 }

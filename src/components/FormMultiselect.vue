@@ -171,8 +171,7 @@ $chip-height = 26px
   flex: 1 1 auto
   padding: 7px 0 7px 3px
 
-  &:focus,
-  &:focus-visible {
+  &:focus {
     outline: none
 
     + .items {

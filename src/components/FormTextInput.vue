@@ -72,8 +72,7 @@ $padding = 15px
   background: none
   padding: 0 $padding
 
-  &:focus,
-  &:focus-visible {
+  &:focus {
     outline: none
   }
 
