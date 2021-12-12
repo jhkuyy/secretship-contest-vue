@@ -69,7 +69,7 @@ import {
   Table,
 } from '../../../components'
 import { useRequest } from '../../../composables'
-import { apiClient } from '../../../core/services'
+import { apiClient } from '../../../services'
 import { RequestState } from '../../../composables/useRequest'
 
 export default defineComponent({

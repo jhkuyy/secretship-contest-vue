@@ -38,9 +38,10 @@
 
 <script>
 import { defineComponent } from 'vue'
-import Avatar from '../Avatar.vue'
-import Icon from '../Icon.vue'
-import Nav from '../Nav.vue'
+
+import Avatar from '../../components/Avatar.vue'
+import Icon from '../../components/Icon.vue'
+import Nav from '../../components/Nav.vue'
 
 export default defineComponent({
   components: {

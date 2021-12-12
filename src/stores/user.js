@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import appStorage from '../core/services/AppStorage'
+import appStorage from '../services/AppStorage'
 
 const USER_KEY = 'user'
 

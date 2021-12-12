@@ -51,7 +51,7 @@ import {
   FormMultiselect,
   Button,
 } from '../../components'
-import { apiClient } from '../../core/services'
+import { apiClient } from '../../services'
 import { Route } from '../../lib'
 
 export default defineComponent({
