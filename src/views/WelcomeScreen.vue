@@ -166,7 +166,7 @@ import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 import { AuthWidget } from '../components'
-import { useUser } from '../store'
+import { useUser } from '../stores'
 import { Route } from '../lib'
 
 export default defineComponent({

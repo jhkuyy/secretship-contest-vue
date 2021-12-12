@@ -116,6 +116,8 @@ page:
       users: Users
       settings: Settings
 
+    modal_delete_confirm: Do you really want to uninstall the application?
+
     deposit: Deposit
     withdrawal: Withdrawal
 
@@ -150,3 +152,7 @@ error_fetched:
 
 table:
   not_items_found: No items found
+
+dialog_modal:
+  yes: Yes
+  no: No

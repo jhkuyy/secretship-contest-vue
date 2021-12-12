@@ -4,24 +4,48 @@
       Ui kit
     </Header>
 
-    <div class="mb-4">
-      <h3 class="mb-3">
-        Buttons
-      </h3>
-      <Button>Button</Button>
-    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="mb-4">
+          <h3 class="mb-3">
+            Buttons
+          </h3>
+          <Button>Button</Button>
+        </div>
+      </div>
 
-    <div class="mb-4">
-      <h3 class="mb-3">
-        Checkboxes
-      </h3>
+      <div class="col-md-4">
+        <div class="mb-4">
+          <h3 class="mb-3">
+            Checkboxes
+          </h3>
 
-      <Checkbox
-        class="me-1"
-        modelValue="true"
-      />
+          <Checkbox
+            class="me-1"
+            modelValue="true"
+          />
 
-      <Checkbox />
+          <Checkbox />
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="mb-4">
+          <h3 class="mb-3">
+            Dropdown
+          </h3>
+
+          <Dropdown>
+            <template #trigger>
+              <a class="color-primary">Dropdown</a>
+            </template>
+
+            <div class="text-center">
+              contents
+            </div>
+          </Dropdown>
+        </div>
+      </div>
     </div>
 
     <div class="mb-4">
@@ -106,6 +130,7 @@ import { defineComponent } from 'vue'
 import {
   Button,
   Checkbox,
+  Dropdown,
   Form,
   FormLabel,
   FormTextInput,
@@ -116,6 +141,7 @@ import {
 
 export default defineComponent({
   components: {
+    Dropdown,
     Form,
     Button,
     Checkbox,

@@ -20,7 +20,7 @@
 import { computed, defineComponent } from 'vue'
 import { storeToRefs } from 'pinia'
 import { Route } from '../lib'
-import { useUser } from '../store'
+import { useUser } from '../stores'
 import Icon from './Icon.vue'
 
 export default defineComponent({

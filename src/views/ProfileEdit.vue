@@ -43,7 +43,7 @@ import {
   Button,
 } from '../components'
 import { Route } from '../lib'
-import { useUser } from '../store'
+import { useUser } from '../stores'
 
 export default defineComponent({
   components: {
