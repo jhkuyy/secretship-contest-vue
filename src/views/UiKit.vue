@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1>Ui kit</h1>
+    <Header anchor="#bottom">
+      Ui kit
+    </Header>
 
     <div class="mb-4">
       <h3 class="mb-3">
@@ -109,6 +111,7 @@ import {
   FormTextInput,
   FormMultiselect,
   Tabs,
+  Header,
 } from '../components'
 
 export default defineComponent({
@@ -120,6 +123,7 @@ export default defineComponent({
     FormTextInput,
     FormMultiselect,
     Tabs,
+    Header,
   },
 
   data: () => ({
@@ -133,7 +137,5 @@ export default defineComponent({
 </script>
 
 <style lang="stylus" module>
-.root {
-
-}
+.root {}
 </style>
