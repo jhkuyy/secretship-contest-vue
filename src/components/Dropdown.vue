@@ -15,7 +15,7 @@
     </div>
 
     <div
-      v-if="isOpen"
+      v-show="isOpen"
       :class="$style.content"
     >
       <slot />
@@ -24,8 +24,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, ref } from 'vue'
-import { useClickOutside } from '../composables'
+import { defineComponent, ref, unref } from 'vue'
 import Icon from './Icon.vue'
 
 export default defineComponent({
@@ -37,21 +36,30 @@ export default defineComponent({
     const trigger = ref(null)
     const isOpen = ref(false)
 
-    const { onClickOutside } = useClickOutside()
+    const catchOutsideClick = (e, triggerEl) => {
+      if (triggerEl === e.target || e.composedPath().includes(triggerEl)) {
+        return false
+      }
 
-    const onClose = () => {
-      isOpen.value = false
+      if (isOpen.value && triggerEl !== e.target) {
+        return true
+      }
+
+      return undefined
     }
 
-    const onOpen = () => {
-      isOpen.value = true
+    const toggle = () => {
+      const closeListener = (e) => {
+        if (catchOutsideClick(e, unref(trigger))) {
+          window.removeEventListener('click', closeListener)
+          isOpen.value = false
+        }
+      }
+
+      window.addEventListener('click', closeListener)
+
+      isOpen.value = !isOpen.value
     }
-
-    onClickOutside(trigger, () => {
-      setTimeout(onClose)
-    })
-
-    const toggle = computed(() => (isOpen.value ? onClose : onOpen))
 
     return {
       trigger,
