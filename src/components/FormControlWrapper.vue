@@ -211,7 +211,6 @@ $label-downscale-multiplier = 0.93
   place-items: center
   pointer-events: auto
 
-  // TODO: make mobile work?
   &:hover {
     .descriptionTooltip {
       transform: translateY(0px)

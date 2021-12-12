@@ -165,9 +165,10 @@ import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
-import { AuthWidget } from '../components'
 import { useUser } from '../stores'
 import { Route } from '../lib'
+
+import AuthWidget from './AuthWidget.vue'
 
 export default defineComponent({
   components: {

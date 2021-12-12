@@ -11,8 +11,11 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { UserChip, Logo } from '../../components'
+
+import { Logo } from '../../components'
 import { RouteMeta } from '../../lib'
+
+import UserChip from '../UserChip/UserChip.vue'
 
 const route = useRoute()
 

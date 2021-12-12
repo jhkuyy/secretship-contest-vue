@@ -48,7 +48,6 @@ export default defineComponent({
     }
 
     onClickOutside(trigger, () => {
-      // TODO: fix me
       setTimeout(onClose)
     })
 
