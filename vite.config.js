@@ -36,6 +36,11 @@ export default defineConfig({
     port: 8080,
   },
 
+  base: '/secretship-contest-vue/',
+  build: {
+    outDir: './docs',
+  },
+
   css: {
     modules: {
       generateScopedName: isDev ? generateRichClassName : undefined,

@@ -4,7 +4,7 @@ import guards from './guards'
 
 function createRouter() {
   const router = _createRouter({
-    history: createWebHistory(),
+    history: createWebHistory('/secretship-contest-vue'),
     routes,
   })
 
