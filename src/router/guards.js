@@ -1,4 +1,4 @@
-import { useUser } from '../store'
+import { useUser } from '../stores'
 import { Route } from '../lib'
 import RouteGuard from './RouteGuard'
 

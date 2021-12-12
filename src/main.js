@@ -1,6 +1,6 @@
 import createApp from './app'
 import boot from './boot'
-import { useUser } from './store'
+import { useUser } from './stores'
 
 import './styles/bootstrap.scss'
 import './styles/base.styl'

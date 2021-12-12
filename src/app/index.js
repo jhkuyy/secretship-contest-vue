@@ -1,6 +1,6 @@
 import { createApp as _createApp } from 'vue'
 import { createRouter } from '../router'
-import { createStore } from '../store'
+import { createStore } from '../stores'
 import { createI18n } from '../i18n'
 import App from '../App.vue'
 

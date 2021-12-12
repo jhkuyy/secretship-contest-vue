@@ -11,6 +11,5 @@
 * delete all ; from styles
 * delete /d route
 * add eslint-plugin-comments
-* rename src/store to stores
 
 * DELETE THIS TODO
