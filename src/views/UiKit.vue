@@ -32,17 +32,19 @@
         <div class="mb-3">
           <FormMultiselect
             v-model="model1"
-            :items="['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6']"
             notFoundText="Not found"
             placeholder="placeholder"
+            :items="['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6']"
           />
         </div>
 
         <div class="mb-3">
           <FormMultiselect
             v-model="model2"
-            :items="['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6']"
             notFoundText="Not found"
+            disabled
+            description="Disabled"
+            :items="['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6']"
           />
         </div>
 

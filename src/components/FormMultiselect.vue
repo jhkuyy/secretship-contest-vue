@@ -5,8 +5,14 @@
     :description="description"
     :controlValue="modelValue"
     :controlValueRules="rules"
+    :disabled="disabled"
   >
-    <div :class="$style.wrapper">
+    <div
+      :class="[
+        $style.wrapper,
+        disabled && $style.wrapper_disabled
+      ]"
+    >
       <div
         v-for="(item, index) in modelValue"
         :key="item"
@@ -78,6 +84,7 @@ export default defineComponent({
     description: { type: String, default: undefined },
     placeholder: { type: String, default: undefined },
     notFoundText: { type: String, default: '' },
+    disabled: Boolean,
   },
 
   emits: ['update:modelValue'],
@@ -138,11 +145,23 @@ export default defineComponent({
 </script>
 
 <style lang="stylus" module>
+$chip-padding-x = 9px
+$chip-height = 26px
+
 .wrapper {
   padding: 8px 0 8px 12px
   display: flex
   flex-wrap: wrap
   align-items: center
+
+  &_disabled {
+    .chip {
+      padding-right: $chip-padding-x
+    }
+    .chipRemoveButton {
+      display: none
+    }
+  }
 }
 
 .input {
@@ -163,13 +182,14 @@ export default defineComponent({
 }
 
 .chip {
+  height: $chip-height
   font-size: 12px
   line-height: 16px
   font-weight: 600
   background-color: $colors.primary
   border-radius: 4px
   margin: 3px 6px 3px 0
-  padding-left: 9px
+  padding-left: $chip-padding-x
   color: $colors.white
   display: flex
   align-items: center
@@ -177,8 +197,8 @@ export default defineComponent({
 
 .chipRemoveButton {
   all: unset
-  width: 26px
-  height: 26px
+  width: $chip-height
+  height: $chip-height
   display: grid
   grid-template: 1fr / 1fr
   place-items: center

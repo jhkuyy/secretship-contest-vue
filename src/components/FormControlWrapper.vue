@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{ [$style.root_disabled]: disabled }">
     <div
       :class="{
         [$style.body]: true,
@@ -63,6 +63,7 @@ import { useValidation, useFormControl } from '../composables'
 export default defineComponent({
   props: {
     filled: Boolean,
+    disabled: Boolean,
     label: { type: String, default: undefined },
     hintText: { type: String, default: undefined },
     description: { type: String, default: undefined },
@@ -95,6 +96,12 @@ $font-size = 14px
 $line-height = 18px
 $height = $line-height + $padding * 2
 $label-downscale-multiplier = 0.93
+
+.root {
+  &_disabled {
+    pointer-events: none
+  }
+}
 
 .body {
   border-radius: 6px
@@ -202,6 +209,7 @@ $label-downscale-multiplier = 0.93
   grid-row-start: 1
   display: grid
   place-items: center
+  pointer-events: auto
 
   // TODO: make mobile work?
   &:hover {
@@ -235,7 +243,7 @@ $label-downscale-multiplier = 0.93
   transition-delay: 0.25s
   opacity: 0
   visibility: hidden
-  bottom: 100%
+  bottom: calc(100% + 3px)
 }
 
 .descriptionBubbleBackdrop {
